@@ -10,6 +10,7 @@ class Maps extends Component {
   }
 
   render() {
+      console.log(google);
     return (
       <div id="map" className="map-container"></div>
     );

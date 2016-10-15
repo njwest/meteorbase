@@ -21,6 +21,9 @@ export const AuthenticatedNavigation = () => (
       <LinkContainer to="/documents">
         <NavItem eventKey={ 2 } href="/documents">Documents</NavItem>
       </LinkContainer>
+      <IndexLinkContainer to="/map">
+        <NavItem eventKey={ 1 } href="/">Map</NavItem>
+      </IndexLinkContainer>
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">
