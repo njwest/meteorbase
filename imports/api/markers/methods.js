@@ -28,31 +28,31 @@ export const insertMarker = new ValidatedMethod({
 });
 
 export const updateMarker = new ValidatedMethod({
-  name: 'documents.update',
+  name: 'markers.update',
   validate: new SimpleSchema({
     _id: { type: String },
     'update.title': { type: String, optional: true },
   }).validator(),
   run({ _id, update }) {
-    Documents.update(_id, { $set: update });
+    Markers.update(_id, { $set: update });
   },
 });
 
-export const removeDocument = new ValidatedMethod({
-  name: 'documents.remove',
+export const removeMarker = new ValidatedMethod({
+  name: 'markers.remove',
   validate: new SimpleSchema({
     _id: { type: String },
   }).validator(),
   run({ _id }) {
-    Documents.remove(_id);
+    Markers.remove(_id);
   },
 });
 
 rateLimit({
   methods: [
-    insertDocument,
-    updateDocument,
-    removeDocument,
+    insertMarker,
+    updateMarker,
+    removeMarker,
   ],
   limit: 5,
   timeRange: 1000,
