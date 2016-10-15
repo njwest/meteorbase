@@ -9,9 +9,7 @@ export const App = React.createClass({
   render() {
     return <div>
       <AppNavigation />
-      <Grid>
         { this.props.children }
-      </Grid>
     </div>;
   },
 });

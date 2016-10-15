@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Row, Col, Alert, FormGroup, FormControl, Button, Grid } from 'react-bootstrap';
 import { handleRecoverPassword } from '../../modules/recover-password';
 
 export class RecoverPassword extends React.Component {
@@ -12,7 +12,8 @@ export class RecoverPassword extends React.Component {
   }
 
   render() {
-    return <Row>
+    return <Grid>
+    <Row>
       <Col xs={ 12 } sm={ 6 } md={ 4 }>
         <h4 className="page-header">Recover Password</h4>
         <Alert bsStyle="info">
@@ -30,6 +31,7 @@ export class RecoverPassword extends React.Component {
           <Button type="submit" bsStyle="success">Recover Password</Button>
         </form>
       </Col>
-    </Row>;
+    </Row>
+    </Grid>;
   }
 }

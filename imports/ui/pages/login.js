@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { handleLogin } from '../../modules/login';
+import { Grid } from 'react-bootstrap';
 
 export class Login extends React.Component {
   componentDidMount() {
@@ -13,7 +14,8 @@ export class Login extends React.Component {
   }
 
   render() {
-    return <Row>
+    return <Grid>
+    <Row>
       <Col xs={ 12 } sm={ 6 } md={ 4 }>
         <h4 className="page-header">Login</h4>
         <form ref="login" className="login" onSubmit={ this.handleSubmit }>
@@ -41,6 +43,7 @@ export class Login extends React.Component {
           <Button type="submit" bsStyle="success">Login</Button>
         </form>
       </Col>
-    </Row>;
+    </Row>
+    </Grid>;
   }
 }

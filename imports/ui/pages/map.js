@@ -6,7 +6,8 @@ import {
     FormGroup,
     ControlLabel,
     FormControl,
-    Button
+    Button,
+    Grid
 } from 'react-bootstrap';
 
 export class Maps extends React.Component {
