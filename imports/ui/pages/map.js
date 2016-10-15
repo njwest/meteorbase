@@ -10,11 +10,29 @@ import {
 } from 'react-bootstrap';
 
 export class Maps extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userPosition: {lat: 40.7128, lng: -74.0059},
+            defaultCenter: {
+                lat: 40.7128,
+                lng: -74.0059
+            },
+            // zoom: 12,
+            //
+            // subscription: {
+            //     markers: Meteor.subscribe('allMarkers')
+            // },
+            // markers: Markers.find().fetch(),
+
+        }
+    }
+
     componentDidMount() {
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">New York</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
             'sandstone rock formation in the southern part of the '+
@@ -31,7 +49,7 @@ export class Maps extends React.Component {
             '(last visited June 22, 2009).</p>'+
             '</div>'+
             '</div>';
-            
+
         var ny = {lat: 40.7128, lng: -74.0059};
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -55,7 +73,19 @@ export class Maps extends React.Component {
           infowindow.open(map, marker);
         });
     }
-
+    getCurrentPosition(){
+        navigator.geolocation.watchPosition( (position) => {
+            let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+            this.setState({
+                userPosition,
+            });
+        },
+        (error) => {
+            alert(error.message);
+        },
+        {enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
+        );
+    }
     render(){
         // console.log(google);
         return (
