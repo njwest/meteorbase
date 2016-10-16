@@ -7,14 +7,15 @@ import {
     ControlLabel,
     FormControl,
     Button,
-    Grid
+    Grid,
+    Modal
 } from 'react-bootstrap';
 
 export class Maps extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userPosition: {lat: 40.7128, lng: -74.0059},
+            userPosition: getCurrentPosition(),
             defaultCenter: {
                 lat: 40.7128,
                 lng: -74.0059
@@ -43,7 +44,7 @@ export class Maps extends React.Component {
       })
   }
     componentDidMount() {
-        this.getCurrentPosition()
+        this.getCurrentPosition();
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -66,6 +67,7 @@ export class Maps extends React.Component {
             '</div>';
 
         var ny = {lat: 40.7128, lng: -74.0059};
+        let sourland = {lat: 40.473927, lng: -74.694482};
 
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
@@ -74,20 +76,25 @@ export class Maps extends React.Component {
                 lng: -74.0059
             }
         });
+
         var infowindow = new google.maps.InfoWindow({
           content: contentString,
           maxWidth: 200
         });
 
         var marker = new google.maps.Marker({
-          position: ny,
+          position: sourland,
           map: map,
           title: 'Uluru (Ayers Rock)'
         });
+
+        // modal code
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
     }
+
+
     render(){
         console.log(this.state);
         return (
