@@ -1,15 +1,13 @@
-html, body{
-  background-color: #EAE2D1;
+#bootstrap-overrides html body{
+  background-color: #737530; 
+},
+
+#bootstrap-overrides .jumbotron{
+	background-color: #666666;
+	color: #111111;
 }
 
-nav{
-  background-color: #46302D;
-}
 
-.navbar-default{
-  background-color: #fff;
-  color: #fff;
-}
 /*colors*/
   /*a5a745*/
   /*737530*/
