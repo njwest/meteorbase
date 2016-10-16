@@ -8,7 +8,7 @@
     "chimp-watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
     "chimp-test": "chimp --ddp=http://localhost:3000 --mocha --path=tests",
     "staging": "meteor deploy staging.meteor.com --settings settings-development.json",
-    "production": "meteor deploy production.meteor.com --settings settings-production.json"
+    "production": "meteor deploy www.climbon.me --settings settings.json"
   },
   "devDependencies": {
     "chimp": "^0.39.1",
@@ -63,6 +63,7 @@
     "react-addons-pure-render-mixin": "^15.2.1",
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.3.0",
+    "react-google-maps": "^4.11.0",
     "react-komposer": "^1.13.1",
     "react-router": "^2.6.1",
     "react-router-bootstrap": "^0.23.1"
