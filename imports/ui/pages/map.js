@@ -25,11 +25,25 @@ export class Maps extends React.Component {
             //     markers: Meteor.subscribe('allMarkers')
             // },
             // markers: Markers.find().fetch(),
-
         }
     }
-
+    getCurrentPosition() {
+      navigator.geolocation.watchPosition((position) => {
+        let userPosition = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        this.setState({userPosition});
+      }, (error) => {
+        alert(error.message);
+      }, {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 10
+      })
+  }
     componentDidMount() {
+        this.getCurrentPosition()
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -74,21 +88,8 @@ export class Maps extends React.Component {
           infowindow.open(map, marker);
         });
     }
-    getCurrentPosition(){
-        navigator.geolocation.watchPosition( (position) => {
-            let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
-            this.setState({
-                userPosition,
-            });
-        },
-        (error) => {
-            alert(error.message);
-        },
-        {enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
-        );
-    }
     render(){
-        // console.log(google);
+        console.log(this.state);
         return (
             <div>
                 <div id="map" className="map-container"></div>
