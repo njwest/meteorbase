@@ -23,7 +23,6 @@ audit-argument-checks@1.0.7
 browser-policy@1.0.9
 
 fourseven:scss
-aldeed:collection2
 alanning:roles
 themeteorchef:bert
 static-html@1.1.12_1
@@ -34,3 +33,4 @@ mdg:validated-method
 dburles:factory@1.0.0
 ddp-rate-limiter@1.0.5
 shell-server
+reactive-dict
