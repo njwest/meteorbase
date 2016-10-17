@@ -4,7 +4,7 @@
 
 #bootstrap-overrides .jumbotron{
 	background-color: #666666;
-	color: #111111;
+	color: #111111; 
 }
 
 
@@ -13,3 +13,11 @@
   /*737530*/
   /*EAE2D1*/
   /*#F6F3ED*/
+
+/* NOTES ON CSS OVERRIDE */ 
+/* using the bootstrap-overrides ID on css/scss overrides the default bootstrap themes by outweighing its important in the boot order. For some reason html
+and body sometimes work and sometimes still get overridden by bootstrap. The other css/scss files work as intended and the styles go through. 
+add #bootstrap-overrides (exists in the body tag in main.html) to all classes when you wish to override default bootstrap themes. */ 
+/* For additional information about this tweak, visit http://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css */ 
+/* Resource on specificity https://css-tricks.com/specifics-on-css-specificity/ */
+/* END NOTES ON CSS OVERRIDE*/ 
