@@ -7,10 +7,11 @@ import { getInputValue } from './get-input-value';
 
 let component;
 
-const login = () => {
+const addMarker = () => {
   const name = getInputValue(component.refs.name);
   const lat = getInputValue(component.refs.lat);
   const lng = getInputValue(component.refs.lat);
+  console.log(name, lat, lng);
 
   // Meteor.loginWithPassword(email, password, (error) => {
   //   if (error) {
@@ -29,30 +30,37 @@ const login = () => {
 };
 
 const validate = () => {
-  // $(component.refs.login).validate({
-  //   rules: {
-  //     emailAddress: {
-  //       required: true,
-  //       email: true,
-  //     },
-  //     password: {
-  //       required: true,
-  //     },
-  //   },
-  //   messages: {
-  //     emailAddress: {
-  //       required: 'Need an email address here.',
-  //       email: 'Is this email address legit?',
-  //     },
-  //     password: {
-  //       required: 'Need a password here.',
-  //     },
-  //   },
-  //   submitHandler() { login(); },
-  // });
+    // console.log(component.refs)
+  $(component.refs.login).validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      lat: {
+        required: true,
+      },
+      lng: {
+        required: true,
+      },
+    },
+    messages: {
+      name: {
+        required: 'Need an name address here.',
+      },
+      lat: {
+        required: 'Need a lat here.',
+      },
+      lng: {
+        required: 'Need a lng here.',
+      },
+    },
+    submitHandler() { addMarker(); },
+  });
+
 };
 
 export const handleMarkers = (options) => {
   component = options.component;
-  // validate();
+  console.log(component)
+  validate();
 };

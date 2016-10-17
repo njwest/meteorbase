@@ -15,6 +15,7 @@ import {getInputValue} from './get-input-value';
 export class AddMarkers extends TrackerReact(React.Component) {
 
     handleInsertMarkers(event){
+        handleMarkers({ component: this });
         event.preventDefault();
         // const email = getInputValue(component.refs.emailAddress)
         // const target = event.target;
@@ -22,7 +23,7 @@ export class AddMarkers extends TrackerReact(React.Component) {
         const val =  ReactDOM.findDOMNode(this.ref)
         console.log('is this shit working?');
         console.log(val);
-        console.log(this.refs.name)
+        console.log(this.refs.addMarker)
         console.log(this.refs.lat)
         console.log(this.refs.lng)
         // if (title !== '' && event.keyCode === 13) {

@@ -12,6 +12,9 @@ import {Link} from 'react-router';
 
 
 export class Markers extends React.Component {
+    componentDidMount() {
+      handleMarkers({ component: this });
+    }
     constructor(props) {
         super(props);
         this.state = {
