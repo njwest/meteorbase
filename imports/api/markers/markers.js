@@ -42,6 +42,6 @@ Markers.schema = new SimpleSchema({
 
 Markers.attachSchema(Markers.schema);
 
-Factory.define('markers', Markers, {
+Factory.define('marker', Markers, {
   title: () => faker.hacker.phrase(),
 });
