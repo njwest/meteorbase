@@ -8,65 +8,48 @@ import {
     FormControl,
     Button,
     Grid,
-    Modal
+    Modal,
+    Popover,
+    Tooltip,
+    OverlayTrigger
 } from 'react-bootstrap';
+import MyModal from '../components/modal';
 
 export class Maps extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userPosition: getCurrentPosition(),
+            userPosition: {lat: 40.7128, lng: -74.0059},
             defaultCenter: {
                 lat: 40.7128,
                 lng: -74.0059
             },
-            // zoom: 12,
-            //
-            // subscription: {
-            //     markers: Meteor.subscribe('allMarkers')
-            // },
-            // markers: Markers.find().fetch(),
-        }
-    }
-    getCurrentPosition() {
-      navigator.geolocation.watchPosition((position) => {
-        let userPosition = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
+            showModal: false,
         };
-        this.setState({userPosition});
-      }, (error) => {
-        alert(error.message);
-      }, {
-        enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 10
-      })
-  }
+        this.close = this.close.bind(this);
+        this.open = this.open.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+    }
+
+    close() {
+        this.setState({ showModal: false });
+      }
+
+    open() {
+        this.setState({ showModal: true });
+      }
+
     componentDidMount() {
-        this.getCurrentPosition();
+        // this.getCurrentPosition();
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">New York</h1>'+
             '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
-            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
+            '<p>content string</p>'+
             '</div>'+
             '</div>';
 
-        var ny = {lat: 40.7128, lng: -74.0059};
         let sourland = {lat: 40.473927, lng: -74.694482};
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -91,15 +74,56 @@ export class Maps extends React.Component {
         // modal code
         marker.addListener('click', function() {
           infowindow.open(map, marker);
+          this.open;
         });
     }
 
 
     render(){
         console.log(this.state);
+
+        const popover = (
+          <Popover id="modal-popover" title="popover">
+            very popover. such engagement
+          </Popover>
+        );
+        const tooltip = (
+          <Tooltip id="modal-tooltip">
+            wow.
+          </Tooltip>
+        );
+
         return (
             <div>
                 <div id="map" className="map-container"></div>
+
+                <Button
+                  bsStyle="primary"
+                  bsSize="large"
+                  onClick={this.open}
+                >
+                  Launch demo modal
+                </Button>
+
+                <Modal show={this.state.showModal} onHide={this.close}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Sourland Mountain Preserve Climbs</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <h4>Sourland Mountain Preserve</h4>
+                    <p>Climbing is allowed in blank, but watch out for blank.</p>
+
+                    <h4>This is a Popover</h4>
+                    <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
+
+                    <h4>Tooltips in a modal</h4>
+                    <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
+                  </Modal.Body>
+
+                  <Modal.Footer>
+                    <Button onClick={this.close}>Close</Button>
+                  </Modal.Footer>
+                </Modal>
             </div>
         );
     }
