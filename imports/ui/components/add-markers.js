@@ -17,11 +17,11 @@ export class AddMarkers extends React.Component {
         super();
     }
     componentDidMount() {
-      handleMarkers({ component: this });
       this.setState = {obj: this}
     }
     handleInsertMarkers(event){
         event.preventDefault();
+        handleMarkers({ component: this });
         // console.log(this.state.obj)
         // const name = getInputValue(event)
         // handleMarkers({ component: obj });
@@ -48,18 +48,18 @@ export class AddMarkers extends React.Component {
 
     render(){
         return(
-            <form ref="addMarker" className="addMarker" onSubmit={this.handleInsertMarkers.bind(this) }>
+            <form ref="addMarker" className="addMarker" onSubmit={ this.handleInsertMarkers.bind(this) }>
                 <FormGroup  >
                 <ControlLabel>Name of Route</ControlLabel>
-                    <FormControl type="text" ref="name" placeholder="Name the route"/>
+                    <FormControl type="text" ref="name" className="required" name="name" placeholder="Name the route"/>
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Latitude</ControlLabel>
-                    <FormControl type="text" ref="lat" placeholder="Lat"/>
+                    <FormControl type="text" ref="lat" className="required" name="lat" placeholder="Lat"/>
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>longitude</ControlLabel>
-                    <FormControl type="text"  ref="lng" placeholder="Lng."/>
+                    <FormControl type="text"  ref="lng" className="required" name="lng"  placeholder="Lng."/>
                 </FormGroup>
                 <FormGroup  >
                     <Button type="submit" bsStyle="success">Submit</Button>
