@@ -1,4 +1,4 @@
-#bootstrap-overrides .loading {
+.loading {
   -webkit-animation-name: rotate;
   -webkit-animation-duration: 0.5s;
   -webkit-animation-iteration-count: infinite;
@@ -8,7 +8,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-#bootstrap-overrides #map {
+#map {
   width: 100%;
   height: 400px;
 }

@@ -1,11 +1,6 @@
-#bootstrap-overrides .navbar-default{
-     color: #666666;
-     background-color: #111111;
-     margin:0;
-},
-#bootstrap-overrides .navbar-default .navbar-nav > li > a.active,
-#bootstrap-overrides .navbar-default .navbar-nav > li > a.active:focus,
-#bootstrap-overrides .navbar-default .navbar-nav > li > a.active:hover {
+ .navbar-default .navbar-nav > li > a.active,
+ .navbar-default .navbar-nav > li > a.active:focus,
+ .navbar-default .navbar-nav > li > a.active:hover {
   color: #fff;
 
 }
