@@ -12,20 +12,26 @@ import {insertMarker} from '../../api/markers/methods.js';
 import { handleMarkers } from '../../modules/marker';
 import {getInputValue} from './get-input-value';
 
-export class AddMarkers extends TrackerReact(React.Component) {
-
+export class AddMarkers extends React.Component {
+    constructor(){
+        super();
+    }
+    componentDidMount() {
+      handleMarkers({ component: this });
+      this.setState = {obj: this}
+    }
     handleInsertMarkers(event){
-        handleMarkers({ component: this });
         event.preventDefault();
+        // console.log(this.state.obj)
+        // const name = getInputValue(event)
+        // handleMarkers({ component: obj });
         // const email = getInputValue(component.refs.emailAddress)
         // const target = event.target;
-        // const title = target.value.trim();
-        const val =  ReactDOM.findDOMNode(this.ref)
+        // const title = target.value.trim()
         console.log('is this shit working?');
-        console.log(val);
-        console.log(this.refs.addMarker)
-        console.log(this.refs.lat)
-        console.log(this.refs.lng)
+        console.log(getInputValue(this.refs.name))
+        console.log(getInputValue(this.refs.lat))
+        console.log(getInputValue(this.refs.lng))
         // if (title !== '' && event.keyCode === 13) {
         //   insertMarker.call({
         //     title,
@@ -40,26 +46,9 @@ export class AddMarkers extends TrackerReact(React.Component) {
         // }
     }
 
-    log(event){
-      console.log(event)
-      // if (title !== '' && event.keyCode === 13) {
-      //   insertMarker.call({
-      //     title,
-      //   }, (error) => {
-      //     if (error) {
-      //       Bert.alert(error.reason, 'danger');
-      //     } else {
-      //       target.value = '';
-      //       Bert.alert('Marker added!', 'success');
-      //     }
-      //   });
-      // }
-    }
-
-
     render(){
         return(
-            <form ref="addMarker" className="addMarker" onSubmit={this.handleInsertMarkers.bind(this)}>
+            <form ref="addMarker" className="addMarker" onSubmit={this.handleInsertMarkers.bind(this) }>
                 <FormGroup  >
                 <ControlLabel>Name of Route</ControlLabel>
                     <FormControl type="text" ref="name" placeholder="Name the route"/>

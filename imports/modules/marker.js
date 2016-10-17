@@ -8,10 +8,11 @@ import { getInputValue } from './get-input-value';
 let component;
 
 const addMarker = () => {
+    console.log('Add marker fired')
   const name = getInputValue(component.refs.name);
-  const lat = getInputValue(component.refs.lat);
-  const lng = getInputValue(component.refs.lat);
-  console.log(name, lat, lng);
+  // const lat = getInputValue(component.refs.lat);
+  // const lng = getInputValue(component.refs.lat);
+  console.log(name);
 
   // Meteor.loginWithPassword(email, password, (error) => {
   //   if (error) {
@@ -30,32 +31,33 @@ const addMarker = () => {
 };
 
 const validate = () => {
-    // console.log(component.refs)
-  $(component.refs.login).validate({
-    rules: {
-      name: {
-        required: true,
-      },
-      lat: {
-        required: true,
-      },
-      lng: {
-        required: true,
-      },
-    },
-    messages: {
-      name: {
-        required: 'Need an name address here.',
-      },
-      lat: {
-        required: 'Need a lat here.',
-      },
-      lng: {
-        required: 'Need a lng here.',
-      },
-    },
-    submitHandler() { addMarker(); },
-  });
+
+    addMarker();
+  // $(component.refs).validate({
+  //   // rules: {
+  //   //   name: {
+  //   //     required: true,
+  //   //   },
+  //   //   lat: {
+  //   //     required: true,
+  //   //   },
+  //   //   lng: {
+  //   //     required: true,
+  //   //   },
+  //   // },
+  //   // messages: {
+  //   //   name: {
+  //   //     required: 'Need an name address here.',
+  //   //   },
+  //   //   lat: {
+  //   //     required: 'Need a lat here.',
+  //   //   },
+  //   //   lng: {
+  //   //     required: 'Need a lng here.',
+  //   //   },
+  //   // },
+  //   submitHandler() { addMarker(); },
+  // });
 
 };
 
