@@ -23,7 +23,7 @@ export class AddMarkers extends React.Component {
           }
     }
     componentDidMount() {
-        console.log('did this shit mount??', this)
+        // console.log('did this shit mount??', this)
     }
     handleInsertMarkers(event){
         event.preventDefault();

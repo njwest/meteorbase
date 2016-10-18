@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
 
-export const getCurrentPosition = () => (
+export const getCurrentPosition = (component) => (
     navigator.geolocation.getCurrentPosition( (position) => {
         let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
-        this.setState({
+        component.setState({
             userPosition,
         });
 

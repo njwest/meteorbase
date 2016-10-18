@@ -21,7 +21,7 @@ export class Markers extends React.Component {
         //     }
         //   }
         // });
-        getCurrentPosition()
+        getCurrentPosition(this)
         handleMarkers({ component: this });
     }
     constructor(props) {
