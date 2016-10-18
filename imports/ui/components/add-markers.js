@@ -10,9 +10,7 @@ import {
 import {Bert} from 'meteor/themeteorchef:bert';
 import { insertMarker } from '../../api/markers/methods.js';
 import { handleMarkers } from '../../modules/marker';
-<<<<<<< HEAD
 import {getInputValue} from '../../modules/get-input-value';
-// import {getCurrentPosition} from '../../modules/get-current-position';
 export class AddMarkers extends React.Component {
     constructor(props){
         super(props);
@@ -29,25 +27,27 @@ export class AddMarkers extends React.Component {
     }
     handleInsertMarkers(event){
         event.preventDefault();
-        navigator.geolocation.getCurrentPosition(function(position) {
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
-        });
-        handleMarkers({ component: this });
-        console.log(this.state.userPosition)
-        // console.log(this.state.obj)
-        // const name = getInputValue(event)
-        // handleMarkers({ component: obj });
-        // const email = getInputValue(component.refs.emailAddress)
-        // const target = event.target;
-        // const title = target.value.trim()
-        console.log('is this shit working?');
-        console.log(getInputValue(this.refs.name))
-        console.log(getInputValue(this.refs.lat))
-        console.log(getInputValue(this.refs.lng))
-        // if (title !== '' && event.keyCode === 13) {
+        // navigator.geolocation.getCurrentPosition(function(position) {
+        //   console.log(position.coords.latitude);
+        //   console.log(position.coords.longitude);
+        // });
+        handleMarkers({ component: this, lat: this.props.userPosition.lat , lng: this.props.userPosition.lng });
+        console.log(this.props.userPosition.lat);
+        console.log(this.props.userPosition.lng);
+        // // console.log(this.state.obj)
+        // const name = getInputValue(this.refs.name)
+        // const lat = getInputValue(Number(this.refs.lat))
+        // const lng = getInputValue(Number(this.refs.lng))
+
+        // console.log('is this shit working?');
+        // console.log(getInputValue(this.refs.name))
+        // console.log(getInputValue(this.refs.lat))
+        // console.log(getInputValue(this.refs.lng))
+        // // if (title !== '' && event.keyCode === 13) {
         //   insertMarker.call({
-        //     title,
+        //     name,
+        //     lat,
+        //     lng
         //   }, (error) => {
         //     if (error) {
         //       Bert.alert(error.reason, 'danger');
@@ -56,7 +56,7 @@ export class AddMarkers extends React.Component {
         //       Bert.alert('Marker added!', 'success');
         //     }
         //   });
-        // }
+        // // }
     }
 
     render(){
