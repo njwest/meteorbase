@@ -4,38 +4,38 @@ import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { getInputValue } from './get-input-value';
-// import { insertMarker } from '../api/documents/methods.js';
+import { insertMarker } from '../api/markers/methods.js';
 import { Markers } from '../api/markers/markers.js';
 let component;
 
 const addMarker = () => {
-    console.log('Add marker fired')
     const name = getInputValue(component.refs.name);
-    const lat = getInputValue(component.refs.lat);
-    const lng = getInputValue(component.refs.lat);
+    const lat_str = getInputValue(component.refs.lat);
+    const lng_str = getInputValue(component.refs.lat);
+    const lat = Number(lat_str);
+    const lng = Number(lng_str);
     console.log(name);
-    console.log(lat);
-    console.log(lng);
+    console.log(Number(lat));
+    console.log(Number(lng));
 
-    Markers.insert(name, lat, lng);
-    // insertMarker.call({
-    //     name,
-    //     lat,
-    //     lng
-    // }, (error) => {
-    //     if (error) {
-    //       Bert.alert(error.reason, 'warning');
-    //     } else {
-    //       Bert.alert('Inserted', 'success');
-    //
-    //         const { location } = component.props;
-    //             if (location.state && location.state.nextPathname) {
-    //         browserHistory.push(location.state.nextPathname);
-    //             } else {
-    //         browserHistory.push('/');
-    //         }
-    //     }
-    // });
+    insertMarker.call({
+        name,
+        lat,
+        lng
+    }, (error) => {
+        if (error) {
+          Bert.alert(error.reason, 'warning');
+        } else {
+          Bert.alert('Inserted', 'success');
+    
+            const { location } = component.props;
+                if (location.state && location.state.nextPathname) {
+            browserHistory.push(location.state.nextPathname);
+                } else {
+            browserHistory.push('/');
+            }
+        }
+    });
 };
 
 const validate = () => {
