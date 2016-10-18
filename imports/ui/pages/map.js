@@ -65,28 +65,6 @@ export class Maps extends React.Component {
       )
     }
 
-    componentDidMount() {
-        // this.getCurrentPosition();
-        var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">New York</h1>'+
-            '<div id="bodyContent">'+
-            '<p>content string</p>'+
-            '</div>'+
-            '</div>';
-
-        let sourland = {lat: 40.473927, lng: -74.694482};
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center: {
-                lat: 40.473927,
-                lng: -74.694482
-            }
-        });
-
-    }
 
     createMarker() {
       return new google.maps.Marker({
@@ -104,11 +82,11 @@ export class Maps extends React.Component {
       })
     }
 
-
     handleMarkerClick(){
         console.log("ow");
         this.setState({
           showModal: true
+
         });
         // modal code
         marker.addListener('click', function() {
