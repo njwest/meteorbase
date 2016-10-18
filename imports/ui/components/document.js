@@ -38,23 +38,23 @@ const handleRemoveDocument = (documentId, event) => {
 };
 
 export const Document = ({ document }) => (
-  <ListGroupItem key={ document._id }>
-    <Row>
-      <Col xs={ 8 } sm={ 10 }>
-        <FormControl
-          type="text"
-          defaultValue={ document.title }
-          onKeyUp={ handleUpdateDocument.bind(this, document._id) }
-        />
-      </Col>
-      <Col xs={ 4 } sm={ 2 }>
-        <Button
-          bsStyle="danger"
-          className="btn-block"
-          onClick={ handleRemoveDocument.bind(this, document._id) }>
-          Remove
-        </Button>
-      </Col>
-    </Row>
-  </ListGroupItem>
+    <ListGroupItem key={ document._id }>
+        <Row>
+              <Col xs={ 8 } sm={ 10 }>
+                    <FormControl
+                      type="text"
+                      defaultValue={ document.title }
+                      onKeyUp={ handleUpdateDocument.bind(this, document._id) }
+                    />
+              </Col>
+              <Col xs={ 4 } sm={ 2 }>
+                    <Button
+                      bsStyle="danger"
+                      className="btn-block"
+                      onClick={ handleRemoveDocument.bind(this, document._id) }>
+                      Remove
+                    </Button>
+              </Col>
+        </Row>
+    </ListGroupItem>
 );
