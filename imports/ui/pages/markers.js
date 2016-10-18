@@ -3,7 +3,6 @@ import {
     Row,
     Col
  } from 'react-bootstrap';
-import DocumentsList from '../containers/documents-list.js';
 import { AddMarkers } from '../components/add-markers.js';
 import { Grid } from 'react-bootstrap';
 import { handleMarkers } from '../../modules/marker';
