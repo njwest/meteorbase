@@ -13,7 +13,7 @@ const userName = () => {
 };
 
 export const AuthenticatedNavigation = () => (
-  <div>
+  <div className='navba'>
     <Nav>
       <IndexLinkContainer to="/">
         <NavItem eventKey={ 1 } href="/">Index</NavItem>

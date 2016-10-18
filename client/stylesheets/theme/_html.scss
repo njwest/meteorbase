@@ -1,69 +1,101 @@
-html, body {
-  background-color: #EAE2D1;
+html,
+body {
+    background-color: #EAE2D1;
 }
 
 .navbar-default {
-  color: #fff;
-  margin: 0;
+    color: #fff;
+    margin: 0;
 }
 
 .jumbotron {
-  color: #111111;
-  background-color: transparent;
+    color: #111111;
+    background-color: transparent;
 }
 
 body {
-  height: 100%;
-  text-align: center;
-  background-color: #46302D;
-  background-image: linear-gradient(#46302D, #F29A3C);
-  background: #46302D;
-  background: linear-gradient(#46302D, #907F73);
+    height: 100%;
+    text-align: center;
+    background-color: #46302D;
+    background-image: linear-gradient(#46302D, #F29A3C);
+    background: #46302D;
+    background: linear-gradient(#46302D, #907F73);
 }
 
 .navbar {
-  background-color: #46302D;
-  color: white;
-  border: none;
+    background-color: #46302D;
+    color: white;
+    border: none;
 }
 
-a {
-  color: white;
-  &:hover {
-    background-color: #74723A;
-  }
-  &:active {
-    background-color: red;
-  }
-}
-
-.active {
-  background-color: red;
+nav>a {
+    color: white;
+    &:hover {
+        background-color: #74723A;
+    }
+    &:active {
+        background-color: red;
+    }
 }
 
 .btn {
-  border: none;
-  text-transform: uppercase;
+    border: none;
+    text-transform: uppercase;
 }
 
 .navbar-toggle {
-  color: red;
+    color: red;
 }
 
 h2 {
+    color: white;
+}
+
+.navbar > .active > a {
+    color: white;
+    &:hover {
+        background-color: #A6A354;
+        color: white;
+    }
+    &:focus {
+        background-color: #74723A;
+        color: white;
+    }
+}
+
+p {
   color: white;
 }
 
+.
+
 /*colors*/
-  /*a5a745*/
-  /*737530*/
-  /*EAE2D1*/
-  /*#F6F3ED*/
+
+
+/*a5a745*/
+
+
+/*737530*/
+
+
+/*EAE2D1*/
+
+
+/*#F6F3ED*/
+
 
 /* NOTES ON CSS OVERRIDE */
+
+
 /* using the bootstrap-overrides ID on css/scss overrides the default bootstrap themes by outweighing its important in the boot order. For some reason html
 and body sometimes work and sometimes still get overridden by bootstrap. The other css/scss files work as intended and the styles go through.
 add  (exists in the body tag in main.html) to all classes when you wish to override default bootstrap themes. */
+
+
 /* For additional information about this tweak, visit http://stackoverflow.com/questions/20721248/best-way-to-override-bootstrap-css */
+
+
 /* Resource on specificity https://css-tricks.com/specifics-on-css-specificity/ */
+
+
 /* END NOTES ON CSS OVERRIDE*/
