@@ -2,3 +2,61 @@
   display: block;
   @extend %clearfix;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  overflow-x: hidden;
+  color: #F6F3ED;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.gradient {
+  height: 100%;
+  text-align: center;
+  background-color: #46302D;
+  background-image: linear-gradient(#46302D, #F29A3C);
+  background: #46302D;
+  background: linear-gradient(#46302D, #907F73);
+}
+
+.panel {
+  background-color: #736057;
+  border-radius: 3px;
+}
+
+.panel-heading {
+  background-color: #4F3A36;
+  color: white;
+  letter-spacing: 3px;
+  border-radius: 3px;
+}
+
+input.form-control {
+  background-color: #f6f3ed;
+  border: none;
+  border-radius: 3px;
+}
+
+a {
+  color: #F6F3ED;
+  &:hover {
+    color: #F6F3ED;
+  }
+}
+
+.input-group-addon {
+  background-color: #907F73;
+  color: #F6F3ED;
+  border-radius: 3px;
+}
+
+.btn {
+  background-color: #A6A354;
+  color: white;
+  border-radius: 3px;
+  &:hover {
+    background-color: #74723a;
+    color: white;
+  }
+}

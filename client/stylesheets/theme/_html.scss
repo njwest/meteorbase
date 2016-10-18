@@ -1,18 +1,58 @@
- html, body{
+html, body {
   background-color: #EAE2D1;
-},
-
-.navbar-default{
-    color: #fff;
-    background-color: #F6F3ED;
-    margin:0;
-},
-
- .jumbotron{
-	background-color: #666666;
-	color: #111111;
 }
 
+.navbar-default {
+  color: #fff;
+  margin: 0;
+}
+
+.jumbotron {
+  color: #111111;
+  background-color: transparent;
+}
+
+body {
+  height: 100%;
+  text-align: center;
+  background-color: #46302D;
+  background-image: linear-gradient(#46302D, #F29A3C);
+  background: #46302D;
+  background: linear-gradient(#46302D, #907F73);
+}
+
+.navbar {
+  background-color: #46302D;
+  color: white;
+  border: none;
+}
+
+a {
+  color: white;
+  &:hover {
+    background-color: #74723A;
+  }
+  &:active {
+    background-color: red;
+  }
+}
+
+.active {
+  background-color: red;
+}
+
+.btn {
+  border: none;
+  text-transform: uppercase;
+}
+
+.navbar-toggle {
+  color: red;
+}
+
+h2 {
+  color: white;
+}
 
 /*colors*/
   /*a5a745*/

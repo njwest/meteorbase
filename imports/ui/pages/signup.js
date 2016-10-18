@@ -60,7 +60,7 @@ export class Signup extends React.Component {
               placeholder="Password"
             />
           </FormGroup>
-          <Button type="submit" bsStyle="success">Sign Up</Button>
+          <Button type="submit" className='btn'>Sign Up</Button>
         </form>
         <p>Already have an account? <Link to="/login">Log In</Link>.</p>
       </Col>
