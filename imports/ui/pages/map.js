@@ -15,10 +15,12 @@ import {
     OverlayTrigger
 } from 'react-bootstrap';
 import MyModal from '../components/modal';
+import { getCurrentPosition } from '../../modules/get-current-position';
 
 export class Maps extends React.Component {
     constructor(props) {
         super(props);
+        getCurrentPosition(this);
         this.state = {
             userPosition: {lat: 40.7128, lng: -74.0059},
             defaultCenter: {
@@ -27,6 +29,9 @@ export class Maps extends React.Component {
             },
             zoom: 10,
             showModal: false,
+            subscription: {
+                markers: Meteor.subscribe('allMarkers')
+            },
         };
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
@@ -37,6 +42,8 @@ export class Maps extends React.Component {
       // been rendered because we need to manipulate the DOM for Google =(
       this.map = this.createMap()
       this.marker = this.createMarker()
+      this.allMarkers = this.markers()
+      console.log(this.allMarkers);
       this.infoWindow = this.createInfoWindow()
 
       // have to define google maps event listeners here too
@@ -44,6 +51,9 @@ export class Maps extends React.Component {
       google.maps.event.addListener(this.map, 'zoom_changed', ()=> this.handleZoomChange())
 
       google.maps.event.addListener(this.marker, 'click', ()=> this.handleMarkerClick())
+    }
+    markers(){
+        return Meteor.call('Markers.find');
     }
 
     componentDidUnMount() {
@@ -122,6 +132,10 @@ export class Maps extends React.Component {
             <p>Current Zoom: { this.state.zoom }</p>
           </div>
           <div className='GMap-canvas' ref="mapCanvas">
+
+          {/* {this.markers().map( (marker) => {
+              return <renderMap lat={marker.lat} lng={marker.lng} text={marker.name} hover="Some shit" />
+            })} */}
           </div>
         </div>
 
