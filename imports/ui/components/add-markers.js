@@ -28,6 +28,7 @@ export class AddMarkers extends React.Component {
     }
     handleInsertMarkers(event){
         event.preventDefault();
+
         handleMarkers({ component: this, lat: this.props.userPosition.lat , lng: this.props.userPosition.lng });
         console.log(this.props.userPosition.lat);
         console.log(this.props.userPosition.lng);

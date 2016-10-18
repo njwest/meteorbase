@@ -13,7 +13,7 @@ const addMarker = () => {
     const name      = getInputValue(component.refs.name);
     const userLat   = parseInt(getInputValue(component.refs.lat));
     const userLng   = parseInt(getInputValue(component.refs.lng));
-
+    
     console.log(name);
     console.log(typeof userLat);
     console.log(typeof userLng);
@@ -27,7 +27,7 @@ const addMarker = () => {
           Bert.alert(error.reason, 'warning',);
         } else {
           Bert.alert('Inserted', 'success');
-    
+
             const { location } = component.props;
                 if (location.state && location.state.nextPathname) {
             browserHistory.push(location.state.nextPathname);
@@ -64,7 +64,7 @@ const validate = () => {
         required: 'Please insert a Lotitude',
       },
     },
-    submitHandler() { addMarker(lat, lng); }, 
+    submitHandler() { addMarker(lat, lng); },
   });
 
 };

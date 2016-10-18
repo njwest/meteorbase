@@ -24,11 +24,15 @@ Markers.schema = new SimpleSchema({
   },
   lat:{
       type: Number,
+      decimal: true,
       label: "latitude",
+
   },
   lng:{
       type: Number,
+      decimal: true,    
       label: "longitude",
+
   },
   // rating:{
   //     type: Number,
