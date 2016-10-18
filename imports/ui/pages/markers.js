@@ -7,22 +7,22 @@ import DocumentsList from '../containers/documents-list.js';
 import { AddMarkers } from '../components/add-markers.js';
 import { Grid } from 'react-bootstrap';
 import { handleMarkers } from '../../modules/marker';
-
+import { getCurrentPosition } from '../../modules/get-current-position';
 import {Link} from 'react-router';
 
 
 export class Markers extends React.Component {
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          this.setState = {
-            userPosition: {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            }
-          }
-        });
-
-      handleMarkers({ component: this });
+        // navigator.geolocation.getCurrentPosition(function(position) {
+        //   this.setState = {
+        //     userPosition: {
+        //       lat: position.coords.latitude,
+        //       lng: position.coords.longitude
+        //     }
+        //   }
+        // });
+        getCurrentPosition()
+        handleMarkers({ component: this });
     }
     constructor(props) {
         super(props);
