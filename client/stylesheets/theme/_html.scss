@@ -67,6 +67,7 @@ p {
   color: white;
 }
 
+<<<<<<< HEAD
 .
 
 /*colors*/
@@ -99,3 +100,28 @@ add  (exists in the body tag in main.html) to all classes when you wish to overr
 
 
 /* END NOTES ON CSS OVERRIDE*/
+=======
+html,
+body,
+.GMap {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.GMap-canvas {
+  top: 20px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.UpdatedText {
+  color: red;
+}
+
+
+/*colors*/
+  /*a5a745*/
+  /*737530*/
+  /*EAE2D1*/
+  /*#F6F3ED*/
+>>>>>>> 638c24058386d3b8ea086f818199333e0d935f14

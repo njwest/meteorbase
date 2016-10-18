@@ -13,6 +13,15 @@ import {Link} from 'react-router';
 
 export class Markers extends React.Component {
     componentDidMount() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          this.setState = {
+            userPosition: {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            }
+          }
+        });
+
       handleMarkers({ component: this });
     }
     constructor(props) {
@@ -23,6 +32,10 @@ export class Markers extends React.Component {
                 lat: 40.7128,
                 lng: -74.0059
             },
+            userPosition: {
+                lat: 40.7128, lng: -74.0059
+            },
+
             // zoom: 12,
             //
             // subscription: {
@@ -36,12 +49,13 @@ export class Markers extends React.Component {
     //
     // }
     render(){
+        console.log(this.state)
         return(
             <Grid>
                 <Row>
                     <Col xs={ 12 }>
                         <h4 className="page-header">Markers</h4>
-                        <AddMarkers />
+                        <AddMarkers userPosition={this.state.userPosition} />
                         <DocumentsList />
                     </Col>
                 </Row>
