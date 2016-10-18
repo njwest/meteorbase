@@ -10,6 +10,7 @@ import {
 import {Bert} from 'meteor/themeteorchef:bert';
 import { insertMarker } from '../../api/markers/methods.js';
 import { handleMarkers } from '../../modules/marker';
+<<<<<<< HEAD
 import {getInputValue} from '../../modules/get-input-value';
 // import {getCurrentPosition} from '../../modules/get-current-position';
 export class AddMarkers extends React.Component {
@@ -67,6 +68,7 @@ export class AddMarkers extends React.Component {
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Latitude</ControlLabel>
+
                     <FormControl type="text" ref="lat" value={this.props.userPosition.lat} className="required" name="lat"/>
                 </FormGroup>
                 <FormGroup  >

@@ -21,6 +21,7 @@ export class Markers extends React.Component {
             }
           }
         });
+
       handleMarkers({ component: this });
     }
     constructor(props) {
