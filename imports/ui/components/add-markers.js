@@ -10,39 +10,41 @@ import {
 import {Bert} from 'meteor/themeteorchef:bert';
 import { insertMarker } from '../../api/markers/methods.js';
 import { handleMarkers } from '../../modules/marker';
-import {getInputValue} from './get-input-value';
+import {getInputValue} from '../../modules/get-input-value';
 
 export class AddMarkers extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-          //without TrackerReact, you can't do the following:
-          //if we change what gets published in publish.js then what's available in the front end (see with ctrl + m) is limited to just that.
-        subscription: {
+    constructor(props){
+        super(props);
+        console.log(this);
+          this.setState = {
+            subscription: {
             //resolutions : Meteor.subscribe('allResolutions')
-            markers : Meteor.subscribe('allMarkers')
-        },
-        }
+              markers : Meteor.subscribe('allMarkers')
+            },
+          }
     }
     componentDidMount() {
-      this.setState = {obj: this}
+        console.log('did this shit mount??', this)
     }
     handleInsertMarkers(event){
         event.preventDefault();
-        handleMarkers({ component: this });
-        // console.log(this.state.obj)
-        // const name = getInputValue(event)
-        // handleMarkers({ component: obj });
-        // const email = getInputValue(component.refs.emailAddress)
-        // const target = event.target;
-        // const title = target.value.trim()
-        console.log('is this shit working?');
-        console.log(getInputValue(this.refs.name))
-        console.log(getInputValue(this.refs.lat))
-        console.log(getInputValue(this.refs.lng))
-        // if (title !== '' && event.keyCode === 13) {
+        handleMarkers({ component: this, lat: this.props.userPosition.lat , lng: this.props.userPosition.lng });
+        console.log(this.props.userPosition.lat);
+        console.log(this.props.userPosition.lng);
+        // // console.log(this.state.obj)
+        // const name = getInputValue(this.refs.name)
+        // const lat = getInputValue(Number(this.refs.lat))
+        // const lng = getInputValue(Number(this.refs.lng))
+
+        // console.log('is this shit working?');
+        // console.log(getInputValue(this.refs.name))
+        // console.log(getInputValue(this.refs.lat))
+        // console.log(getInputValue(this.refs.lng))
+        // // if (title !== '' && event.keyCode === 13) {
         //   insertMarker.call({
-        //     title,
+        //     name,
+        //     lat,
+        //     lng
         //   }, (error) => {
         //     if (error) {
         //       Bert.alert(error.reason, 'danger');
@@ -51,7 +53,7 @@ export class AddMarkers extends React.Component {
         //       Bert.alert('Marker added!', 'success');
         //     }
         //   });
-        // }
+        // // }
     }
 
     render(){
@@ -63,11 +65,12 @@ export class AddMarkers extends React.Component {
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Latitude</ControlLabel>
-                    <FormControl type="text" ref="lat" className="required" name="lat" placeholder="Lat"/>
+
+                    <FormControl type="text" ref="lat" value={this.props.userPosition.lat} className="required" name="lat"/>
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>longitude</ControlLabel>
-                    <FormControl type="text"  ref="lng" className="required" name="lng"  placeholder="Lng."/>
+                    <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
                 </FormGroup>
                 <FormGroup  >
                     <Button type="submit" bsStyle="success">Submit</Button>

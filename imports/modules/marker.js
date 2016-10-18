@@ -9,22 +9,22 @@ import { Markers } from '../api/markers/markers.js';
 let component;
 
 const addMarker = () => {
-    const name = getInputValue(component.refs.name);
-    const lat_str = getInputValue(component.refs.lat);
-    const lng_str = getInputValue(component.refs.lat);
-    const lat = Number(lat_str);
-    const lng = Number(lng_str);
+  console.log(component.refs.addMarker);
+    const name      = getInputValue(component.refs.name);
+    const userLat   = parseInt(getInputValue(component.refs.lat));
+    const userLng   = parseInt(getInputValue(component.refs.lng));
+
     console.log(name);
-    console.log(Number(lat));
-    console.log(Number(lng));
+    console.log(typeof userLat);
+    console.log(typeof userLng);
 
     insertMarker.call({
         name,
-        lat,
-        lng
+        lat: userLat,
+        lng: userLng
     }, (error) => {
         if (error) {
-          Bert.alert(error.reason, 'warning');
+          Bert.alert(error.reason, 'warning',);
         } else {
           Bert.alert('Inserted', 'success');
     
@@ -46,11 +46,11 @@ const validate = () => {
       },
       lat: {
         required: true,
-        number: true,
+      //   number: true,
       },
       lng: {
         required: true,
-        number: true,
+      //   number: true,
       },
     },
     messages: {
@@ -64,12 +64,15 @@ const validate = () => {
         required: 'Please insert a Lotitude',
       },
     },
-    submitHandler() { addMarker(); },
+    submitHandler() { addMarker(lat, lng); }, 
   });
 
 };
 
 export const handleMarkers = (options) => {
   component = options.component;
-  validate();
+  lat       = options.lat;
+  lng       = options.lng;
+
+  validate(lat, lng);
 };
