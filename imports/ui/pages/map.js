@@ -28,7 +28,6 @@ export class Maps extends React.Component {
         };
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     close() {

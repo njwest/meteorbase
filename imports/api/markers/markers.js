@@ -18,7 +18,7 @@ Markers.deny({
 });
 
 Markers.schema = new SimpleSchema({
-  title: {
+  name: {
     type: String,
     label: 'The name of the route',
   },
@@ -30,18 +30,18 @@ Markers.schema = new SimpleSchema({
       type: Number,
       label: "longitude",
   },
-  rating:{
-      type: Number,
-      label: "User Rating",
-  },
-  difficulty:{
-      type: Number,
-      label: "Route difficulty",
-  },
+  // rating:{
+  //     type: Number,
+  //     label: "User Rating",
+  // },
+  // difficulty:{
+  //     type: Number,
+  //     label: "Route difficulty",
+  // },
 });
 
 Markers.attachSchema(Markers.schema);
 
-Factory.define('markers', Markers, {
+Factory.define('marker', Markers, {
   title: () => faker.hacker.phrase(),
 });
