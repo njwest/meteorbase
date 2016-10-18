@@ -4,8 +4,8 @@ import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { getInputValue } from './get-input-value';
-import { insertMarker } from '../api/documents/methods.js';
-
+// import { insertMarker } from '../api/documents/methods.js';
+import { Markers } from '../api/markers/markers.js';
 let component;
 
 const addMarker = () => {
@@ -17,7 +17,7 @@ const addMarker = () => {
     console.log(lat);
     console.log(lng);
 
-    Meteor.call('Markers.insert', name, lat, lng);
+    Markers.insert(name, lat, lng);
     // insertMarker.call({
     //     name,
     //     lat,

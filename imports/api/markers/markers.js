@@ -5,17 +5,17 @@ import { Factory } from 'meteor/dburles:factory';
 
 export const Markers = new Mongo.Collection('Markers');
 
-Markers.allow({
-  insert: () => false,
-  update: () => false,
-  remove: () => false,
-});
+// Markers.allow({
+//   insert: () => false,
+//   update: () => false,
+//   remove: () => false,
+// });
 
-Markers.deny({
-  insert: () => true,
-  update: () => true,
-  remove: () => true,
-});
+// Markers.deny({
+//   insert: () => true,
+//   update: () => true,
+//   remove: () => true,
+// });
 
 Markers.schema = new SimpleSchema({
   title: {

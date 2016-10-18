@@ -29,7 +29,7 @@ export const insertMarker = new ValidatedMethod({
 
 Meteor.methods({
   'Markers.insert': function(name, lat, lng) {
-      console.log('inserting now!')
+    console.log('inserting now!')
     return Markers.insert({
         //basically means 'name: name'
         name,

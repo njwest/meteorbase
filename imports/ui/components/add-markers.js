@@ -8,13 +8,21 @@ import {
     ControlLabel
 } from 'react-bootstrap';
 import {Bert} from 'meteor/themeteorchef:bert';
-import {insertMarker} from '../../api/markers/methods.js';
+import { insertMarker } from '../../api/markers/methods.js';
 import { handleMarkers } from '../../modules/marker';
 import {getInputValue} from './get-input-value';
 
 export class AddMarkers extends React.Component {
     constructor(){
         super();
+        this.state = {
+          //without TrackerReact, you can't do the following:
+          //if we change what gets published in publish.js then what's available in the front end (see with ctrl + m) is limited to just that.
+        subscription: {
+            //resolutions : Meteor.subscribe('allResolutions')
+            markers : Meteor.subscribe('allMarkers')
+        },
+        }
     }
     componentDidMount() {
       this.setState = {obj: this}
