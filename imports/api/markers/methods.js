@@ -6,7 +6,7 @@ import { rateLimit } from '../../modules/rate-limit.js';
 export const insertMarker = new ValidatedMethod({
   name: 'marker.insert',
   validate: new SimpleSchema({
-    title: {
+    name: {
       type: String,
     },
     lat:{
@@ -15,42 +15,42 @@ export const insertMarker = new ValidatedMethod({
     lng:{
         type: Number,
     },
-    rating:{
-        type: Number,
-    },
-    difficulty:{
-        type: Number,
-    },
+    // rating:{
+    //     type: Number,
+    // },
+    // difficulty:{
+    //     type: Number,
+    // },
   }).validator(),
   run(marker) {
     Markers.insert(marker);
   },
 });
 
-Meteor.methods({
-  'Markers.insert': function(name, lat, lng) {
-      console.log('inserting now!')
-    return Markers.insert({
-        //basically means 'name: name'
-        name,
-        lat,
-        lng,
-        // ownerId: this.userId
-    });
-    },
-  // 'Markers.remove': function(marker) {
-  //   return Markers.remove(marker);
-  // },
-  'Markers.find': function(){
-      return Markers.find()
-  },
-  'allMarkers': function(){
-      return Markers.find()
-  }
-  // 'Markers.update': function(marker, content) {
-  //   return marker.update(bin._id, { $set: { content } });
-  // }
-})
+// Meteor.methods({
+//   'Markers.insert': function(name, lat, lng) {
+//     console.log('inserting now!')
+//     return Markers.insert({
+//         //basically means 'name: name'
+//         name,
+//         lat,
+//         lng,
+//         // ownerId: this.userId
+//     });
+//     },
+//   // 'Markers.remove': function(marker) {
+//   //   return Markers.remove(marker);
+//   // },
+//   'Markers.find': function(){
+//       return Markers.find()
+//   },
+//   'allMarkers': function(){
+//       return Markers.find()
+//   }
+//   // 'Markers.update': function(marker, content) {
+//   //   return marker.update(bin._id, { $set: { content } });
+//   // }
+// })
 
 
 export const updateMarker = new ValidatedMethod({
