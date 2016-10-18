@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import {
@@ -13,13 +13,10 @@ import { handleMarkers } from '../../modules/marker';
 import {getInputValue} from '../../modules/get-input-value';
 // import {getCurrentPosition} from '../../modules/get-current-position';
 export class AddMarkers extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         console.log(this);
           this.setState = {
-            userPosition: {
-                lat: 40.7128, lng: -74.0059
-            },
             subscription: {
             //resolutions : Meteor.subscribe('allResolutions')
               markers : Meteor.subscribe('allMarkers')
@@ -27,18 +24,14 @@ export class AddMarkers extends React.Component {
           }
     }
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          this.setState = {
-            userPosition: {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            }
-          }
-        });
         console.log('did this shit mount??', this)
     }
     handleInsertMarkers(event){
         event.preventDefault();
+        navigator.geolocation.getCurrentPosition(function(position) {
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
+        });
         handleMarkers({ component: this });
         console.log(this.state.userPosition)
         // console.log(this.state.obj)
@@ -66,7 +59,6 @@ export class AddMarkers extends React.Component {
     }
 
     render(){
-      console.log(this)
         return(
             <form ref="addMarker" className="addMarker" onSubmit={ this.handleInsertMarkers.bind(this) }>
                 <FormGroup  >
@@ -75,11 +67,11 @@ export class AddMarkers extends React.Component {
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Latitude</ControlLabel>
-                    <FormControl type="text" ref="lat" v className="required" name="lat" placeholder="Lat"/>
+                    <FormControl type="text" ref="lat" value={this.props.userPosition.lat} className="required" name="lat"/>
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>longitude</ControlLabel>
-                    <FormControl type="text"  ref="lng"  className="required" name="lng"  placeholder="Lng."/>
+                    <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
                 </FormGroup>
                 <FormGroup  >
                     <Button type="submit" bsStyle="success">Submit</Button>
