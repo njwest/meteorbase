@@ -55,8 +55,8 @@ export class Maps extends React.Component {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
             center: {
-                lat: 40.7128,
-                lng: -74.0059
+                lat: 40.473927,
+                lng: -74.694482
             }
         });
 
@@ -74,7 +74,7 @@ export class Maps extends React.Component {
         // modal code
         marker.addListener('click', function() {
           infowindow.open(map, marker);
-          this.open;
+          this.open();
         });
     }
 
