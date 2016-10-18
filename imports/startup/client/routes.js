@@ -13,7 +13,7 @@ import { ResetPassword } from '../../ui/pages/reset-password';
 import { Signup } from '../../ui/pages/signup';
 import { Modal } from '../../ui/pages/modal';
 
-import { Maps } from '../../ui/pages/map';
+import { Map } from '../../ui/pages/map';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -29,7 +29,7 @@ Meteor.startup(() => {
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
-        <Route name="map" path="/map" component={ Maps } onEnter={ requireAuth }/>
+        <Route name="map" path="/map" component={ Map } onEnter={ requireAuth }/>
         <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
         <Route name="markers" path="/markers" component={ Markers } onEnter={ requireAuth } />
         <Route name="login" path="/login" component={ Login } />
