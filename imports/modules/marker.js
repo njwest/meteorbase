@@ -11,8 +11,8 @@ let component;
 const addMarker = () => {
   console.log(component.refs.addMarker);
     const name      = getInputValue(component.refs.name);
-    const userLat   = parseInt(getInputValue(component.refs.lat));
-    const userLng   = parseInt(getInputValue(component.refs.lng));
+    const userLat   = getInputValue(component.refs.lat);
+    const userLng   = getInputValue(component.refs.lng);
     // const lat = ;
     // const lng = Number(lng_str);
     console.log(name);
