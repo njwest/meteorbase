@@ -14,6 +14,7 @@ import {
 } from 'react-bootstrap';
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_places';
+import renderMarker from './render-marker'
 import { createContainer } from 'meteor/react-meteor-data';
 import { Markers } from '../../api/markers/markers.js';
 import { Loading } from '../components/loading.js';
@@ -106,7 +107,7 @@ class SimpleMapPage extends React.Component {
         return Markers.find().fetch();
     }
     render() {
-        console.log(this.state.userPosition)
+        // console.log(this.state.userPosition)
 
         const popover = (
           <Popover id="modal-popover" title="popover">
@@ -139,7 +140,7 @@ class SimpleMapPage extends React.Component {
                     >
 
                       {this.markers().map( (marker) => {
-                        return <MyGreatPlace key={marker._id} lat={marker.lat} lng={marker.lng}  hover="lol" />
+                        return <renderMarker key={marker._id} lat={marker.lat} lng={marker.lng}  hover="lol" />
                       })}
 
                       {this.markers().map( (marker) => {
