@@ -152,7 +152,7 @@ class SimpleMapPage extends React.Component {
                         <img src="/rock.png"/>
                         <h4>Difficulty: v{marker.difficulty}</h4>
                         <h4>User Rating: {marker.rating}</h4>
-                          <h4>{marker.comments}</h4>
+                          <h4>Comments: {marker.comments}</h4>
                           <h4><a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank" id="links">Click Here for Directions</a></h4>
                         </Modal.Body>
                       </Modal>
