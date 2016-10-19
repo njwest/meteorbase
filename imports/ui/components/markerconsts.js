@@ -6,7 +6,7 @@ const Marker = ({ marker }) => (
     <ListGroupItem key={ marker._id }>
         <Row>
               <Col xs={ 8 } sm={ 10 }>
-                    <Button bsStyle="link" href={"https://www.google.com/maps/preview/@"+marker.lat+','+marker.lng+',11z'}>{marker.name}</Button>
+                    <Button bsStyle="link" href={"https://maps.google.com/maps?&z=10&q="+marker.lat+'+'+marker.lng+'&ll='+marker.lat+marker.lng}>{marker.name}</Button>
               </Col>
 
         </Row>
