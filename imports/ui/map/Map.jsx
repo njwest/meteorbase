@@ -12,6 +12,7 @@ import {
     Tooltip,
     OverlayTrigger
 } from 'react-bootstrap';
+import { getCurrentPosition } from '../../modules/get-current-position';
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_places';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -19,7 +20,7 @@ import { Markers } from '../../api/markers/markers.js';
 import { Loading } from '../components/loading.js';
 import { Meteor } from 'meteor/meteor';
 import controllable from 'react-controllables';
-
+import {getHintBaloonHorizontalPosStyle} from './helper/ballon'
 var divStyle = {
     width: '100%',
     height: 768
@@ -87,27 +88,27 @@ class SimpleMapPage extends React.Component {
     }
 
 	componentDidMount() {
-		this.getCurrentPosition();
+		getCurrentPosition(this);
 	}
-    getCurrentPosition(){
-        navigator.geolocation.watchPosition( (position) => {
-            let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
-            this.setState({
-                userPosition,
-            });
-        },
-        (error) => {
-            alert(error.message);
-        },
-        {enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
-        );
-    }
+    // getCurrentPosition(){
+    //     navigator.geolocation.watchPosition( (position) => {
+    //         let userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+    //         this.setState({
+    //             userPosition,
+    //         });
+    //     },
+    //     (error) => {
+    //         alert(error.message);
+    //     },
+    //     {enableHighAccuracy: true, timeout: 20000, maximumAge: 10}
+    //     );
+    // }
     markers(){
         return Markers.find().fetch();
     }
     render() {
         console.log(this.state.userPosition)
-
+        // const hintBaloonHorizontalPosStyle = getHintBaloonHorizontalPosStyle(markerDim.x, this.props.size.width, this.props.origin.x, mapWidth);
         const popover = (
           <Popover id="modal-popover" title="popover">
             very popover. such engagement
@@ -140,7 +141,9 @@ class SimpleMapPage extends React.Component {
                     >
 
                       {this.markers().map( (marker) => {
-                        return <MyGreatPlace key={marker.name} lat={marker.lat} lng={marker.lng}  hover="lol" />
+
+                        return <MyGreatPlace key={marker._id} lat={marker.lat} lng={marker.lng} text={marker.name} hover="lol" />
+
                       })}
 
                       {this.markers().map( (marker) => {
