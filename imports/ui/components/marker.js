@@ -3,13 +3,13 @@ import { Row, Col, ListGroupItem, FormControl, Button } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
 
 
-export const Marker = ({ Marker }) => (
-    <ListGroupItem key={ Marker._id }>
+export const Marker = ({ marker }) => (
+    <ListGroupItem key={ marker._id }>
         <Row>
               <Col xs={ 8 } sm={ 10 }>
                     <FormControl
                       type="text"
-                      defaultValue={ Marker.name }
+                      defaultValue={ marker.name }
                     />
               </Col>
 

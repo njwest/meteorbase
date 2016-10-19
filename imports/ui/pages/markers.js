@@ -55,7 +55,6 @@ export class Markers extends React.Component {
                     <Col xs={ 12 }>
                         <h4 className="page-header">Markers</h4>
                         <AddMarkers userPosition={this.state.userPosition} />
-                        <DocumentsList />
                     </Col>
                 </Row>
             </Grid>
