@@ -7,9 +7,10 @@ const Marker = ({ marker }) => (
         <Row>
               <Col xs={ 8 } sm={ 10 }>
                     <FormControl
-                      type="text"
-                      defaultValue={ marker.name }
+                      type="number"
+                      defaultValue={ marker.lat }
                     />
+                    <FormControl type="number" defaultValue={ marker.lng } />
               </Col>
 
         </Row>

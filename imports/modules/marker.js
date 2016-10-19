@@ -28,7 +28,7 @@ const addMarker = () => {
           Bert.alert(error.reason, 'warning',);
         } else {
           Bert.alert('Inserted', 'success');
-    
+
             const { location } = component.props;
                 if (location.state && location.state.nextPathname) {
             browserHistory.push(location.state.nextPathname);
@@ -65,7 +65,7 @@ const validate = () => {
         required: 'Please insert a Lotitude',
       },
     },
-    submitHandler() { addMarker(lat, lng); }, 
+    submitHandler() { addMarker(lat, lng); },
   });
 
 };
