@@ -79,11 +79,11 @@ export class AddMarkers extends React.Component {
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Rating</ControlLabel>
-                    <FormControl type="text"  ref="rating" className="required" name="lng" placeholder="what's your rating out of 5?"/>
+                    <FormControl type="text"  ref="rating" className="required" name="rating" placeholder="what's your rating out of 5?"/>
                 </FormGroup>
                 <FormGroup  >
                     <ControlLabel>Difficulty</ControlLabel>
-                    <FormControl type="text"  ref="difficulty"  placeholder="V0-12"className="required" name="lng"/>
+                    <FormControl type="text"  ref="difficulty"  placeholder="V0-12" className="required" name="lng"/>
                 </FormGroup>
                 <FormGroup controlId="comments">
                   <ControlLabel>Comments</ControlLabel>

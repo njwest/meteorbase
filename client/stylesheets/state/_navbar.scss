@@ -1,4 +1,4 @@
-#bootstrapOver .nav a {
+ .nav a {
     color: white;
     &:hover {
         background-color: #A6A354;
@@ -10,31 +10,30 @@
     }
 }
 
-#bootstrapOver .nav .active a {
+ .nav .active a {
     background-color: #74723A;
 }
 
-#bootstrapOver .navbar-default .navbar-toggle {
+ .navbar-default .navbar-toggle {
     background-color: #A6A354;
     border-color: transparent;
     color: #ffffff;
 }
 
-#bootstrapOver .navbar-default .navbar-toggle .icon-bar {
+ .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
 }
 
-#bootstrapOver .navbar-default .navbar-brand {
+ .navbar-default .navbar-brand {
     color: white;
 }
 
-#bootstrapOver .dropdown-menu{
+ .dropdown-menu{
   background-color: #46302D;
   border-radius: none;
 }
 
-#bootstrapOver .dropdown-menu > li > a, .dropdown-menu > li > a:focus{
+ .dropdown-menu > li > a, .dropdown-menu > li > a:focus{
     background-color: #46302D;
     color: white;
 }
-
