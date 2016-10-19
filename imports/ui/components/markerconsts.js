@@ -6,7 +6,8 @@ const Marker = ({ marker }) => (
     <ListGroupItem key={ marker._id }>
         <Row>
               <Col xs={ 8 } sm={ 10 }>
-                    <Button bsStyle="link" href={"https://maps.google.com/maps?&z=10&q="+marker.lat+'+'+marker.lng+'&ll='+marker.lat+marker.lng}>{marker.name}</Button>
+              <h3>{marker.name}</h3>
+                  <a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank">Click Here for Directions</a>
               </Col>
 
         </Row>
@@ -19,7 +20,7 @@ export const MarkerConsts = ({ markers }) => (
       <Marker key={ mark._id } marker={ mark } />
     ))}
   </ListGroup> :
-  <Alert bsStyle="warning">No Markers yet.</Alert>
+  <Alert bsStyle="warning">No climbs yet.</Alert>
 );
 
 MarkerConsts.propTypes = {

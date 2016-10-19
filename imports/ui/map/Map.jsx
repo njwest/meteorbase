@@ -65,7 +65,7 @@ class SimpleMapPage extends React.Component {
     _onChildClick(key, childProps){
       console.log('ow');
       this.setState({ showModal: true});
-      const markerId = childProps.marker.get('id');
+      const markerId = childProps.marker.get("_id");
       const index = this.props.markers.findIndex(m => m.get('id') === markerId);
       if (this.props.onChildClick) {
         this.props.onChildClick(index);
@@ -139,43 +139,22 @@ class SimpleMapPage extends React.Component {
                     >
 
                       {this.markers().map( (marker) => {
-                        return <MyGreatPlace key={marker._id} lat={marker.lat} lng={marker.lng} text={marker.name} hover="Some shit" />
+                        return <MyGreatPlace key={marker._id} lat={marker.lat} lng={marker.lng} text={marker.name} hover="lol" />
                       })}
+                      {this.markers().map( (marker) => {
+                      return <Modal show={this.state.showModal} onHide={this.close}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>{marker.name}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          <h4>Put Description Here</h4>
+                          <a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank">Click Here for Directions</a>
+                        </Modal.Body>
+                      </Modal>
+                        })}
 
-                      <MyGreatPlace lat={this.state.userPosition.lat} lng={this.state.userPosition.lng} text="I'm here!" />
+                      <MyGreatPlace lat={this.state.userPosition.lat} lng={this.state.userPosition.lng} text="You" />
                 </GoogleMap>
-
-                <Modal show={this.state.showModal} onHide={this.close}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Sourland Mountain Preserve Climbs</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <h4>Sourland Mountain Preserve</h4>
-                    <p>Climbing is allowed in blank, but watch out for blank.</p>
-
-                    <h4>This is a Popover</h4>
-                    <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
-
-                    <h4>Tooltips in a modal</h4>
-                    <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
-
-                    <hr />
-
-                    <h4>Overflowing text to show scroll behavior</h4>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button onClick={this.close}>Close</Button>
-                  </Modal.Footer>
-                </Modal>
             </div>
         );
     }
@@ -201,3 +180,35 @@ export default createContainer((props) => {
        poi: Markers.find({}, { sort: { createdAt: -1 } }).fetch()
      }
 }, SimpleMapPage) ;
+
+{/* <Modal show={this.state.showModal} onHide={this.close}>
+  <Modal.Header closeButton>
+    <Modal.Title>Sourland Mountain Preserve Climbs</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <h4>Sourland Mountain Preserve</h4>
+    <p>Climbing is allowed in blank, but watch out for blank.</p>
+
+    <h4>This is a Popover</h4>
+    <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
+
+    <h4>Tooltips in a modal</h4>
+    <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
+
+    <hr />
+
+    <h4>Overflowing text to show scroll behavior</h4>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button onClick={this.close}>Close</Button>
+  </Modal.Footer>
+</Modal> */}
