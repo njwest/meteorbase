@@ -23,7 +23,7 @@ export class AddMarkers extends React.Component {
           }
     }
     componentDidMount() {
-        // console.log('did this shit mount??', this)
+        console.log('did this shit mount??', this)
     }
     handleInsertMarkers(event){
         event.preventDefault();
@@ -75,6 +75,14 @@ export class AddMarkers extends React.Component {
                     <ControlLabel>longitude</ControlLabel>
                     <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
                 </FormGroup>
+                {/* <FormGroup  >
+                    <ControlLabel>longitude</ControlLabel>
+                    <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
+                </FormGroup>
+                <FormGroup  >
+                    <ControlLabel>longitude</ControlLabel>
+                    <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
+                </FormGroup> */}
                 <FormGroup  >
                     <Button type="submit" bsStyle="success">Submit</Button>
                 </FormGroup>
