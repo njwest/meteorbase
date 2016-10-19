@@ -16,8 +16,8 @@ export class Login extends React.Component {
   render() {
     return <Grid>
     <Row>
-      <Col xs={ 12 } sm={ 6 } md={ 4 }>
-        <h4 className="page-header">Login</h4>
+      <Col md={ 4 } mdPush={ 4 }>
+        <h4 className="page-header">LOGIN</h4>
         <form ref="login" className="login" onSubmit={ this.handleSubmit }>
           <FormGroup>
             
@@ -39,6 +39,7 @@ export class Login extends React.Component {
             />
             <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
           </FormGroup>
+          <br />
           <Button type="submit" bsStyle="success">Login</Button>
         </form>
       </Col>

@@ -7,7 +7,7 @@ import { Grid } from 'react-bootstrap';
 export const Documents = () => (
 <Grid>
   <Row>
-    <Col xs={ 12 }>
+    <Col md={ 6 } mdPush={3}>
       <h4 className="page-header">Documents</h4>
       <AddDocument />
       <DocumentsList />

@@ -7,25 +7,21 @@
      background: linear-gradient(#46302D, #907F73);
      color: #ffffff;
  }
-
-
+#bootstrapOver {
+  text-align: center;
+} 
  .navbar-default {
      color: #fff;
      background-color: #46302D;
      border-radius: none;
      margin: 0;
      border: none;
+          background-image: linear-gradient(#46302D, #4B3632);
+     background: #46302D;
+     background: linear-gradient(#46302D, #4B3632);
+     color: #ffffff;
  }
-
- .nav a {
-  color: #ffffff;
- }
-
- a.nav:hover {
-  color: #A6A354;
- }
-
-,
+ ,
  .jumbotron {
      color: #111111;
      background-color: transparent;
@@ -48,7 +44,7 @@
  }
  
  .UpdatedText {
-     color: red;
+     color: white;
  }
  
  ,
@@ -61,8 +57,18 @@
          background-color: #74723A;
      }
  }
+
+ #bootstrapOver .InfoWindow {
+  color: #46302D;
+ }
  /*colors*/
  /*a5a745*/
  /*737530*/
  /*EAE2D1*/
  /*#F6F3ED*/
+
+
+#bootstrapOver .clearfix .bert-alert p {
+  background-color: #74723A;
+  color: white;
+}
