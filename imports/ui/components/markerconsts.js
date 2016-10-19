@@ -5,9 +5,13 @@ import { ListGroup, Alert, Col, ListGroupItem, FormControl, Button, Row } from '
 const Marker = ({ marker }) => (
     <ListGroupItem key={ marker._id }>
         <Row>
-              <Col xs={ 8 } sm={ 10 }>
+              <Col xs={ 12 } sm={ 12 }>
+              <img src="/rock.png"/>
               <h3>{marker.name}</h3>
-                  <a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank">Click Here for Directions</a>
+              <h4>Difficulty: v{marker.difficulty}</h4>
+              <h4>Rating: {marker.rating}</h4>
+              <h4>Comments: {marker.comments}</h4>
+                  <h4><a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank" id="links">Directions</a></h4>
               </Col>
 
         </Row>
