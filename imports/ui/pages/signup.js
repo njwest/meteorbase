@@ -15,7 +15,7 @@ export class Signup extends React.Component {
   render() {
     return <Grid>
     <Row>
-      <Col md={ 4 } mdPush={ 4 }>
+      <Col md={ 4 } mdPush={ 4 } id="white-background">
         <h4 className="page-header">SIGN UP</h4>
         <form ref="signup" className="signup" onSubmit={ this.handleSubmit }>
           <Row>
