@@ -12,7 +12,6 @@ import { RecoverPassword } from '../../ui/pages/recover-password';
 import { ResetPassword } from '../../ui/pages/reset-password';
 import { Signup } from '../../ui/pages/signup';
 import { Modal } from '../../ui/pages/modal';
-
 import { Maps } from '../../ui/pages/map';
 
 const requireAuth = (nextState, replace) => {

@@ -4,7 +4,7 @@
 // import { renderMaps } from '../components/map.js';
 //
 // // export default createContainer(({ params }) => {
-// //   const subscription = Meteor.subscribe('documents');
+
 // //   const loading = !subscription.ready();
 // //   const markers = Markers.find().fetch();
 // //

@@ -1,7 +1,6 @@
+import $ from "jquery";
 import React from 'react';
-import { render } from 'react-dom'
-import { createContainer } from 'meteor/react-meteor-data';
-import { Markers } from '../../api/markers/markers.js';
+import { render } from 'react-dom';
 import {Link} from 'react-router';
 import {
     Row,
@@ -16,21 +15,11 @@ import {
     Tooltip,
     OverlayTrigger
 } from 'react-bootstrap';
-import MyModal from '../components/modal';
-// import { Markers } from '../../api/markers/markers.js';
+import MyModal from './modal';
 
-export default class renderMaps extends TrackerReact(React.Component) {
+export class renderMaps extends React.Component {
     constructor(props) {
         super(props);
-          const subscription = Meteor.subscribe('markers');
-        // console.log('is this shit firing???')
-        // const subscription = Meteor.subscribe('markers');
-        // if (subscription.ready()) {
-        //   const markers = Markers.find().fetch();
-        //   console.log(markers);
-        // } else {
-        //   console.log('this shit not firing!');
-        // }
         this.state = {
             userPosition: {lat: 40.7128, lng: -74.0059},
             defaultCenter: {
@@ -39,8 +28,6 @@ export default class renderMaps extends TrackerReact(React.Component) {
             },
             zoom: 10,
             showModal: false,
-            subscription: subscription
-            markers: Markers.find().fetch()
         };
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
@@ -49,10 +36,10 @@ export default class renderMaps extends TrackerReact(React.Component) {
     componentDidMount() {
       // create the map, marker and infoWindow after the component has
       // been rendered because we need to manipulate the DOM for Google =(
-      this.map = this.createMap()
-      this.marker = this.createMarker()
-      this.infoWindow = this.createInfoWindow()
-      console.log(this.state)
+    //   this.map = this.createMap()
+    //   this.marker = this.createMarker()
+    //   this.infoWindow = this.createInfoWindow()
+        this.createMap()
 
       // have to define google maps event listeners here too
       // because we can't add listeners on the map until its created
@@ -60,7 +47,6 @@ export default class renderMaps extends TrackerReact(React.Component) {
 
       google.maps.event.addListener(this.marker, 'click', ()=> this.handleMarkerClick())
     }
-
 
     componentDidUnMount() {
       google.maps.event.clearListeners(map, 'zoom_changed')
@@ -71,7 +57,8 @@ export default class renderMaps extends TrackerReact(React.Component) {
         zoom: this.state.zoom,
         center: this.mapCenter()
       }
-      return new google.maps.Map(this.refs.mapCanvas, mapOptions)
+      let renderTarget = $('.mapCanvas');
+      return new google.maps.Map(renderTarget, mapOptions)
     }
 
     mapCenter() {
@@ -120,8 +107,7 @@ export default class renderMaps extends TrackerReact(React.Component) {
       }
 
       render() {
-        const allMarkers = Markers.find().fetch()
-        console.log(allMarkers)
+
         const popover = (
           <Popover id="modal-popover" title="popover">
             very popover. such engagement
@@ -133,55 +119,41 @@ export default class renderMaps extends TrackerReact(React.Component) {
           </Tooltip>
         );
 
-        return(
-            <div>
-            <div className="GMap">
-              <div className='UpdatedText'>
-                <p>Current Zoom: { this.state.zoom }</p>
-              </div>
-              <div className='GMap-canvas' ref="mapCanvas">
-              </div>
-            </div>
+        return
+        <div>
 
-              <Modal show={this.state.showModal} onHide={this.close}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Sourland Mountain Preserve Climbs</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <h4>Sourland Mountain Preserve</h4>
-                  <p>Climbing is allowed in blank, but watch out for blank.</p>
+          <Modal show={this.state.showModal} onHide={this.close}>
+            <Modal.Header closeButton>
+              <Modal.Title>Sourland Mountain Preserve Climbs</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <h4>Sourland Mountain Preserve</h4>
+              <p>Climbing is allowed in blank, but watch out for blank.</p>
 
-                  <h4>This is a Popover</h4>
-                  <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
+              <h4>This is a Popover</h4>
+              <p>there is a <OverlayTrigger overlay={popover}><a href="#">popover</a></OverlayTrigger> here</p>
 
-                  <h4>Tooltips in a modal</h4>
-                  <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
+              <h4>Tooltips in a modal</h4>
+              <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
 
-                  <hr />
+              <hr />
 
-                  <h4>Overflowing text to show scroll behavior</h4>
-                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                  <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                  <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button onClick={this.close}>Close</Button>
-                </Modal.Footer>
-              </Modal>
-            </div>
-        )
+              <h4>Overflowing text to show scroll behavior</h4>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+              <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+              <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.close}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       }
 
 }
-// export default createContainer((props) => {
-//     const subscription = Meteor.subscribe('markers');
-//     return({
-//         markers: Markers.find().fetch(),
-//     })
-// }, renderMaps)
