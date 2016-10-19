@@ -65,8 +65,8 @@ class SimpleMapPage extends React.Component {
     _onChildClick(key, childProps){
       console.log('ow');
       this.setState({ showModal: true});
-      const markerId = childProps.marker.get("_id");
-      const index = this.props.markers.findIndex(m => m.get('id') === markerId);
+      const markerId = childProps.marker.get("id");
+      const index = this.props.markers.findIndex(m => m.get('id') === marker.name);
       if (this.props.onChildClick) {
         this.props.onChildClick(index);
       }
@@ -119,6 +119,7 @@ class SimpleMapPage extends React.Component {
           </Tooltip>
         );
 
+
         return (
             <div style={divStyle}>
                 <GoogleMap bootstrapURLKeys={{
@@ -139,16 +140,16 @@ class SimpleMapPage extends React.Component {
                     >
 
                       {this.markers().map( (marker) => {
-                        return <MyGreatPlace key={marker._id} lat={marker.lat} lng={marker.lng}  hover="lol" />
+                        return <MyGreatPlace key={marker.name} lat={marker.lat} lng={marker.lng}  hover="lol" />
                       })}
 
                       {this.markers().map( (marker) => {
-                      return <Modal show={this.state.showModal} onHide={this.close}>
+                      return <Modal show={this.state.showModal} onHide={this.close} id={marker.name}>
                         <Modal.Header closeButton>
                           <Modal.Title>{marker.name}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                          <h4>Put Description Here</h4>
+                          <h4>{marker.description}</h4>
                           <a href={"https://www.google.com/maps/dir/Current+Location/"+marker.lat+'+'+marker.lng} target="_blank">Click Here for Directions</a>
                         </Modal.Body>
                       </Modal>

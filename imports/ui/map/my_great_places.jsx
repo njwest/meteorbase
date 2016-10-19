@@ -3,26 +3,24 @@ import {greatPlaceStyle, greatPlaceStyleHover}from './my_great_place_styles';
 import React, {PropTypes, Component} from 'react';
 
 export default class MyGreatPlace extends Component {
+    constructor(props) {
+      super(props);
 
-
-  constructor(props) {
-    super(props);
-
-      this.state= {
-          hover: PropTypes.bool,
-          text: PropTypes.string
+        this.state= {
+            hover: PropTypes.bool,
+            text: PropTypes.string
+      }
     }
-  }
 
-  render() {
-    const style = this.props.hover ? greatPlaceStyleHover : greatPlaceStyle;
+      render() {
+        const style = this.props.hover ? greatPlaceStyleHover : greatPlaceStyle;
 
-    return (
-       <div className="hint hint--html hint--info hint--top" style={style}>
-          <div>{this.props.text}</div>
-          <div style={{width: 80}} className="hint__content">
-          </div>
-       </div>
-    );
-  }
-}
+        return (
+           <div className="hint" style={style}>
+              <div>{this.props.text}</div>
+              <div style={{width: 80}} className="hint__content">
+              </div>
+           </div>
+        );
+      }
+    }
