@@ -1,38 +1,68 @@
- html, body{
-  background-color: #EAE2D1;
-},
-
-.navbar-default{
-    color: #fff;
-    background-color: #F6F3ED;
-    margin:0;
-},
-
- .jumbotron{
-	background-color: #666666;
-	color: #111111;
-}
-
-html,
-body,
-.GMap {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-.GMap-canvas {
-  top: 20px;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.UpdatedText {
-  color: red;
-}
+ html,
+ body {
+     background-color: #EAE2D1;
+     background-color: #46302D;
+     background-image: linear-gradient(#46302D, #F29A3C);
+     background: #46302D;
+     background: linear-gradient(#46302D, #907F73);
+     color: #ffffff;
+ }
 
 
-/*colors*/
-  /*a5a745*/
-  /*737530*/
-  /*EAE2D1*/
-  /*#F6F3ED*/
+ .navbar-default {
+     color: #fff;
+     background-color: #46302D;
+     border-radius: none;
+     margin: 0;
+     border: none;
+ }
+
+ .nav a {
+  color: #ffffff;
+ }
+
+ a.nav:hover {
+  color: #A6A354;
+ }
+
+,
+ .jumbotron {
+     color: #111111;
+     background-color: transparent;
+ }
+ 
+ ,
+ html,
+ body,
+ .GMap {
+     height: 100%;
+     position: absolute;
+     width: 100%;
+ }
+ 
+ .GMap-canvas {
+     top: 20px;
+     display: block;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .UpdatedText {
+     color: red;
+ }
+ 
+ ,
+ .btn {
+     border: none;
+     text-transform: uppercase;
+     background-color: #A6A354;
+     color: white;
+     &:hover {
+         background-color: #74723A;
+     }
+ }
+ /*colors*/
+ /*a5a745*/
+ /*737530*/
+ /*EAE2D1*/
+ /*#F6F3ED*/
