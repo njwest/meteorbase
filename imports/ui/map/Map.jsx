@@ -45,7 +45,7 @@ class SimpleMapPage extends React.Component {
                 lat: 40.7128,
                 lng: -74.0059
             },
-            zoom: 12,
+            zoom: 10,
             showModal: false
         }
         this.close = this.close.bind(this);
