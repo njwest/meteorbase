@@ -1,7 +1,7 @@
 import { Accounts } from 'meteor/accounts-base';
 
 const name = 'Climb On';
-const email = 'support@climbon.me';
+const email = 'support@climb-on.online';
 const from = `${name} ${email}`;
 const emailTemplates = Accounts.emailTemplates;
 

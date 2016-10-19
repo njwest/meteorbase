@@ -4,6 +4,8 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import {
     FormGroup,
     FormControl,
+    FieldGroup,
+    Checkbox,
     Button,
     ControlLabel
 } from 'react-bootstrap';
@@ -23,7 +25,7 @@ export class AddMarkers extends React.Component {
           }
     }
     componentDidMount() {
-        // console.log('did this shit mount??', this)
+        console.log('did this shit mount??', this)
     }
     handleInsertMarkers(event){
         event.preventDefault();
@@ -72,9 +74,27 @@ export class AddMarkers extends React.Component {
                     <FormControl type="text" ref="lat" value={this.props.userPosition.lat} className="required" name="lat"/>
                 </FormGroup>
                 <FormGroup  >
-                    <ControlLabel>longitude</ControlLabel>
+                    <ControlLabel>Longitude</ControlLabel>
                     <FormControl type="text"  ref="lng"  value={this.props.userPosition.lng} className="required" name="lng"/>
                 </FormGroup>
+                <FormGroup  >
+                    <ControlLabel>Rating</ControlLabel>
+                    <FormControl type="text"  ref="rating" className="required" name="lng" placeholder="what's your rating out of 5?"/>
+                </FormGroup>
+                <FormGroup  >
+                    <ControlLabel>Difficulty</ControlLabel>
+                    <FormControl type="text"  ref="difficulty"  placeholder="V0-12"className="required" name="lng"/>
+                </FormGroup>
+                <FormGroup controlId="comments">
+                  <ControlLabel>Comments</ControlLabel>
+                  <FormControl componentClass="textarea" ref="comments" placeholder="Tell us what you think about this climb" />
+                </FormGroup>
+                {/* <FieldGroup
+                  id="formControlsFile"
+                  type="file"
+                  label="File"
+                  help="Example block-level help text here."
+                /> */}
                 <FormGroup  >
                     <Button type="submit" bsStyle="success">Submit</Button>
                 </FormGroup>

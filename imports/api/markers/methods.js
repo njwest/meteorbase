@@ -10,17 +10,20 @@ export const insertMarker = new ValidatedMethod({
       type: String,
     },
     lat:{
-        type: Number,
+        type: String,
     },
     lng:{
-        type: Number,
+        type: String,
     },
-    // rating:{
-    //     type: Number,
-    // },
-    // difficulty:{
-    //     type: Number,
-    // },
+    rating:{
+        type: String,
+    },
+    difficulty:{
+        type: String,
+    },
+    comments:{
+        type: String,
+    }
   }).validator(),
   run(marker) {
     Markers.insert(marker);

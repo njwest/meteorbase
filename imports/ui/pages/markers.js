@@ -3,7 +3,6 @@ import {
     Row,
     Col
  } from 'react-bootstrap';
-import DocumentsList from '../containers/documents-list.js';
 import { AddMarkers } from '../components/add-markers.js';
 import { Grid } from 'react-bootstrap';
 import { handleMarkers } from '../../modules/marker';
@@ -55,8 +54,9 @@ export class Markers extends React.Component {
                 <Row>
                     <Col md={ 6 } mdPush={3}>
                         <h4 className="page-header">Markers</h4>
+                    
+                        <h4 className="page-header">Add a Climb</h4>
                         <AddMarkers userPosition={this.state.userPosition} />
-                        <DocumentsList />
                     </Col>
                 </Row>
             </Grid>

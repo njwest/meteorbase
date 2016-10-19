@@ -11,8 +11,11 @@ let component;
 const addMarker = () => {
   console.log(component.refs.addMarker);
     const name      = getInputValue(component.refs.name);
-    const userLat   = parseInt(getInputValue(component.refs.lat));
-    const userLng   = parseInt(getInputValue(component.refs.lng));
+    const userLat   = getInputValue(component.refs.lat);
+    const userLng   = getInputValue(component.refs.lng);
+    const rating   = getInputValue(component.refs.rating);
+    const difficulty   = getInputValue(component.refs.difficulty);
+    const comments   = getInputValue(component.refs.comments);
     // const lat = ;
     // const lng = Number(lng_str);
     console.log(name);
@@ -22,13 +25,16 @@ const addMarker = () => {
     insertMarker.call({
         name,
         lat: userLat,
-        lng: userLng
+        lng: userLng,
+        rating,
+        difficulty,
+        comments
     }, (error) => {
         if (error) {
           Bert.alert(error.reason, 'warning',);
         } else {
           Bert.alert('Inserted', 'success');
-    
+
             const { location } = component.props;
                 if (location.state && location.state.nextPathname) {
             browserHistory.push(location.state.nextPathname);
@@ -53,6 +59,18 @@ const validate = () => {
         required: true,
       //   number: true,
       },
+      rating: {
+        required: true,
+      //   number: true,
+      },
+      difficulty: {
+        required: true,
+      //   number: true,
+      },
+      comments: {
+          required: true,
+      }
+
     },
     messages: {
       name: {
@@ -65,7 +83,7 @@ const validate = () => {
         required: 'Please insert a Lotitude',
       },
     },
-    submitHandler() { addMarker(lat, lng); }, 
+    submitHandler() { addMarker(lat, lng); },
   });
 
 };

@@ -23,17 +23,32 @@ Markers.schema = new SimpleSchema({
     label: 'The name of the route',
   },
   lat:{
-      type: Number,
+      type: String,
       decimal: true,
       label: "latitude",
 
   },
   lng:{
-      type: Number,
-      decimal: true,    
+      type: String,
+      decimal: true,
       label: "longitude",
 
   },
+  rating: {
+    type: String,
+  //   number: true,
+  },
+  difficulty: {
+    type: String,
+  //   number: true,
+  },
+  difficulty: {
+    type: String,
+  //   number: true,
+  },
+  comments: {
+      type: String,
+  }
   // rating:{
   //     type: Number,
   //     label: "User Rating",
