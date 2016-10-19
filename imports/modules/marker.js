@@ -13,6 +13,9 @@ const addMarker = () => {
     const name      = getInputValue(component.refs.name);
     const userLat   = getInputValue(component.refs.lat);
     const userLng   = getInputValue(component.refs.lng);
+    const rating   = getInputValue(component.refs.rating);
+    const difficulty   = getInputValue(component.refs.difficulty);
+    const comments   = getInputValue(component.refs.comments);
     // const lat = ;
     // const lng = Number(lng_str);
     console.log(name);
@@ -22,7 +25,10 @@ const addMarker = () => {
     insertMarker.call({
         name,
         lat: userLat,
-        lng: userLng
+        lng: userLng,
+        rating,
+        difficulty,
+        comments
     }, (error) => {
         if (error) {
           Bert.alert(error.reason, 'warning',);
@@ -53,6 +59,18 @@ const validate = () => {
         required: true,
       //   number: true,
       },
+      rating: {
+        required: true,
+      //   number: true,
+      },
+      difficulty: {
+        required: true,
+      //   number: true,
+      },
+      comments: {
+          required: true,
+      }
+
     },
     messages: {
       name: {
