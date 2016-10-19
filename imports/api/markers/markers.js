@@ -34,6 +34,21 @@ Markers.schema = new SimpleSchema({
       label: "longitude",
 
   },
+  rating: {
+    type: String,
+  //   number: true,
+  },
+  difficulty: {
+    type: String,
+  //   number: true,
+  },
+  difficulty: {
+    type: String,
+  //   number: true,
+  },
+  comments: {
+      type: String,
+  }
   // rating:{
   //     type: Number,
   //     label: "User Rating",
