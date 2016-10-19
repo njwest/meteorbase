@@ -1,15 +1,15 @@
  html,
  body {
      background-color: #EAE2D1;
-     background-color: #46302D;
-     background-image: linear-gradient(#46302D, #F29A3C);
-     background: #46302D;
-     background: linear-gradient(#46302D, #907F73);
+    //  background-color: #46302D;
+    //  background-image: linear-gradient(#46302D, #F29A3C);
+    //  background: #46302D;
+    //  background: linear-gradient(#46302D, #907F73);
      color: #ffffff;
  }
 #bootstrapOver {
   text-align: center;
-} 
+}
  .navbar-default {
      color: #fff;
      background-color: #46302D;
@@ -26,7 +26,7 @@
      color: #111111;
      background-color: transparent;
  }
- 
+
  ,
  html,
  body,
@@ -35,18 +35,18 @@
      position: absolute;
      width: 100%;
  }
- 
+
  .GMap-canvas {
      top: 20px;
      display: block;
      width: 100%;
      height: 100%;
  }
- 
+
  .UpdatedText {
      color: white;
  }
- 
+
  ,
  .btn {
      border: none;
@@ -71,4 +71,21 @@
 #bootstrapOver .clearfix .bert-alert p {
   background-color: #74723A;
   color: white;
+}
+
+html, body, modal, #bootstrapOver{
+  color: black;
+}
+
+a{
+  color: #2A5DB0;
+}
+
+.navbar-default{
+  color: white;
+}
+
+.navbar-default > a {
+  color: white;
+  background-color: #EAE2D1;
 }
