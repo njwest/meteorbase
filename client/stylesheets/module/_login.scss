@@ -3,11 +3,15 @@
   @extend %clearfix;
 }
 
-#bootstrapOver a{
-  color: white;
+#bootstrapOver.a{
+  color: #000;
 }
 
 #bootstrapOver .form-control {
   border-radius: 0;
   border:none;
+}
+
+#login-title{
+    color: #000
 }

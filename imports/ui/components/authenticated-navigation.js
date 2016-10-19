@@ -24,9 +24,9 @@ export const AuthenticatedNavigation = () => (
       <LinkContainer to="/markers">
         <NavItem eventKey={ 2 } href="/markers">Add Climb</NavItem>
       </LinkContainer>
-      <IndexLinkContainer to="/map">
+      {/* <IndexLinkContainer to="/map">
         <NavItem eventKey={ 1 } href="/">Map</NavItem>
-      </IndexLinkContainer>
+      </IndexLinkContainer> */}
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">

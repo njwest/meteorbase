@@ -6,8 +6,8 @@ import MarkersList from '../containers/markers-list.js';
 
 export const MarkerList = () => (
   <Grid>
-    <Row>
-      <Col xs={ 12 }>
+    <Row id="color-white">
+      <Col xs={ 12 } >
         <MarkersList />
       </Col>
     </Row>
