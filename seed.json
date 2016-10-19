@@ -1,0 +1,8 @@
+db.Markers.insert({
+    "name": "The Gunks",
+    "lat": "41.736",
+    "lng": "-74.191",
+    "rating": "5",
+    "difficluty": '10',
+    comments: 'The Gunks (short for Shawangunks) is one of the premier climbing areas in the country. Located near New Paltz, NY, the Gunks is about 85 miles from the NYC metropolitan area, making it a popular weekend destination. The rock is quartz conglomerate, solid rock with horizontal rather than vertical cracks. Climbing at the Gunks is characterized by roofs, jugs, traverses, big air, and sometimes "sporty" pro. The Gunks is famous for great one-to-three-pitch climbs of all levels of difficulty. You'll find some of the best easy and moderate trad climbs in the country at the Gunks. There are a few bolted climbs at the Gunks, but no sport climbs.',
+});
