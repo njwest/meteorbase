@@ -4,7 +4,7 @@ import { Row, Col, Grid, ListGroupItem, FormControl, Button } from 'react-bootst
 import MarkersList from '../containers/markers-list.js';
 
 
-export const Profile = () => (
+export const MarkerList = () => (
   <Grid>
     <Row>
       <Col xs={ 12 }>

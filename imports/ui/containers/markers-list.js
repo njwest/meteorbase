@@ -1,6 +1,6 @@
 import { composeWithTracker } from 'react-komposer';
 import { Markers } from '../../api/markers/markers.js';
-import { MarkersList } from '../components/markers-list.js';
+import { MarkerConsts } from '../components/markerconsts.js';
 import { Loading } from '../components/loading.js';
 import { Meteor } from 'meteor/meteor';
 
@@ -12,4 +12,4 @@ const composer = (params, onData) => {
   }
 };
 
-export default composeWithTracker(composer, Loading)(MarkersList);
+export default composeWithTracker(composer, Loading)(MarkerConsts);

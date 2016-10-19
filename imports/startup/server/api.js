@@ -5,4 +5,3 @@ import '../../api/documents/server/publications.js';
 import '../../api/markers/methods.js';
 import '../../api/markers/server/publications.js';
 import '../../api/markers/markers.js';
-import '../../api/users/server/publications.js';
