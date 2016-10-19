@@ -15,12 +15,15 @@ export const insertMarker = new ValidatedMethod({
     lng:{
         type: String,
     },
-    // rating:{
-    //     type: Number,
-    // },
-    // difficulty:{
-    //     type: Number,
-    // },
+    rating:{
+        type: String,
+    },
+    difficulty:{
+        type: String,
+    },
+    comments:{
+        type: String,
+    }
   }).validator(),
   run(marker) {
     Markers.insert(marker);
