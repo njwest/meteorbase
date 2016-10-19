@@ -6,6 +6,8 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { getInputValue } from './get-input-value';
 import { insertMarker } from '../api/markers/methods.js';
 import { Markers } from '../api/markers/markers.js';
+
+
 let component;
 
 const addMarker = () => {
