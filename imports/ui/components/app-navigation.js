@@ -13,7 +13,10 @@ export class AppNavigation extends React.Component {
     return <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Climb On</Link>
+
+          <Link to="/">
+            <img src="/climb-on-logo.png"  width="140px"></img>
+        </Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

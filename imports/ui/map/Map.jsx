@@ -121,10 +121,10 @@ class SimpleMapPage extends React.Component {
         );
 
         return (
-            <div style={divStyle}>
+            <div style={divStyle} id="googleMap">
                 <GoogleMap bootstrapURLKeys={{
                     key: 'AIzaSyDAQIZigb4sd4EIMVeDZ1jxdx8tH9QRyEM',
-                    language: 'us'
+                    language: 'us',
                 }}
                     center={this.state.userPosition}
                     zoom={this.state.zoom}

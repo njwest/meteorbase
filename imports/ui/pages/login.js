@@ -16,6 +16,11 @@ export class Login extends React.Component {
   render() {
     return <Grid>
     <Row>
+        <img src="/climb-on-logo.png"  width="20%">
+        </img>
+    </Row>
+    <Row>
+
       <Col md={ 4 } mdPush={ 4 } id="login">
         <h4 className="page-header" id="login-title">LOGIN</h4>
         <form ref="login" className="login" onSubmit={ this.handleSubmit }>

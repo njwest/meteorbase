@@ -11,6 +11,23 @@
 #white-background{
     background-color: #fff;
     color: #000;
+    margin-top:2em;
+}
+
+#links{
+    color: #a5a745
+}
+
+#googleMap{
+    z-index: 1;
+}
+
+.navbar-brand img{
+    z-index: 99;
+}
+
+input{
+    background-color:  #d1d1d1;
 }
 span.list-group-item, a{
     color: #000;
