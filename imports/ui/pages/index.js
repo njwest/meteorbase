@@ -5,7 +5,10 @@ import { Grid } from 'react-bootstrap';
 export const Index = () => (
 <Grid>
   <Jumbotron className="text-center">
-    <h2>Climb On </h2>
+  <div>
+  <h1>Image</h1>
+  
+</div>
     <p>A better way to climb.</p>
     <p><a className="btn btn-success" href="/map" role="button">To the map!</a></p>
   </Jumbotron>

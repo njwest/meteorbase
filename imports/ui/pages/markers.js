@@ -52,7 +52,9 @@ export class Markers extends React.Component {
         return(
             <Grid>
                 <Row>
-                    <Col xs={ 12 }>
+                    <Col md={ 6 } mdPush={3}>
+                        <h4 className="page-header">Markers</h4>
+                    
                         <h4 className="page-header">Add a Climb</h4>
                         <AddMarkers userPosition={this.state.userPosition} />
                     </Col>

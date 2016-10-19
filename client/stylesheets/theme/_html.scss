@@ -1,38 +1,74 @@
- html, body{
-  background-color: #EAE2D1;
-},
+ html,
+ body {
+     background-color: #EAE2D1;
+     background-color: #46302D;
+     background-image: linear-gradient(#46302D, #F29A3C);
+     background: #46302D;
+     background: linear-gradient(#46302D, #907F73);
+     color: #ffffff;
+ }
+#bootstrapOver {
+  text-align: center;
+} 
+ .navbar-default {
+     color: #fff;
+     background-color: #46302D;
+     border-radius: none;
+     margin: 0;
+     border: none;
+          background-image: linear-gradient(#46302D, #4B3632);
+     background: #46302D;
+     background: linear-gradient(#46302D, #4B3632);
+     color: #ffffff;
+ }
+ ,
+ .jumbotron {
+     color: #111111;
+     background-color: transparent;
+ }
+ 
+ ,
+ html,
+ body,
+ .GMap {
+     height: 100%;
+     position: absolute;
+     width: 100%;
+ }
+ 
+ .GMap-canvas {
+     top: 20px;
+     display: block;
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .UpdatedText {
+     color: white;
+ }
+ 
+ ,
+ .btn {
+     border: none;
+     text-transform: uppercase;
+     background-color: #A6A354;
+     color: white;
+     &:hover {
+         background-color: #74723A;
+     }
+ }
 
-.navbar-default{
-    color: #fff;
-    background-color: #F6F3ED;
-    margin:0;
-},
+ #bootstrapOver .InfoWindow {
+  color: #46302D;
+ }
+ /*colors*/
+ /*a5a745*/
+ /*737530*/
+ /*EAE2D1*/
+ /*#F6F3ED*/
 
- .jumbotron{
-	background-color: #666666;
-	color: #111111;
+
+#bootstrapOver .clearfix .bert-alert p {
+  background-color: #74723A;
+  color: white;
 }
-
-html,
-body,
-.GMap {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-.GMap-canvas {
-  top: 20px;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.UpdatedText {
-  color: red;
-}
-
-
-/*colors*/
-  /*a5a745*/
-  /*737530*/
-  /*EAE2D1*/
-  /*#F6F3ED*/

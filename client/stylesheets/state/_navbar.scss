@@ -1,6 +1,40 @@
- .navbar-default .navbar-nav > li > a.active,
- .navbar-default .navbar-nav > li > a.active:focus,
- .navbar-default .navbar-nav > li > a.active:hover {
-  color: #fff;
-
+#bootstrapOver .nav a {
+    color: white;
+    &:hover {
+        background-color: #A6A354;
+        color: white;
+    }
+    &:focus {
+        background-color: #74723A;
+        color: white;
+    }
 }
+
+#bootstrapOver .nav .active a {
+    background-color: #74723A;
+}
+
+#bootstrapOver .navbar-default .navbar-toggle {
+    background-color: #A6A354;
+    border-color: transparent;
+    color: #ffffff;
+}
+
+#bootstrapOver .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+#bootstrapOver .navbar-default .navbar-brand {
+    color: white;
+}
+
+#bootstrapOver .dropdown-menu{
+  background-color: #46302D;
+  border-radius: none;
+}
+
+#bootstrapOver .dropdown-menu > li > a, .dropdown-menu > li > a:focus{
+    background-color: #46302D;
+    color: white;
+}
+
