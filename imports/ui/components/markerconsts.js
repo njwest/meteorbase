@@ -6,11 +6,7 @@ const Marker = ({ marker }) => (
     <ListGroupItem key={ marker._id }>
         <Row>
               <Col xs={ 8 } sm={ 10 }>
-                    <FormControl
-                      type="number"
-                      defaultValue={ marker.lat }
-                    />
-                    <FormControl type="number" defaultValue={ marker.lng } />
+                    <Button bsStyle="link" href={"https://www.google.com/maps/preview/@"+marker.lat+','+marker.lng+',11z'}>{marker.name}</Button>
               </Col>
 
         </Row>
